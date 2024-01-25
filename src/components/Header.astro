@@ -1,0 +1,38 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currPath = pathname.replace(/\/$/, "");
+---
+
+<header class="mx-auto flex w-full max-w-7xl items-center justify-between p-6">
+  <a href="/" class="flex items-center">
+    <div
+      class="bg-primary m-4 grid h-10 w-10 place-items-center rounded-full text-white"
+    >
+      GS
+    </div>
+    <span class="text-2xl font-semibold">Geet Sethi</span>
+  </a>
+
+  <nav></nav>
+  <ul class="inline-flex items-center gap-5 text-lg font-medium">
+    {
+      [
+        { text: "Projects", link: "/projects" },
+        { text: "About", link: "/about" },
+        { text: "Blog", link: "/blog" },
+        { text: "Contact", link: "/contact" },
+      ].map((item) => (
+        <li class="menu-link hover:text-primary transition-all duration-200">
+          <a
+            href={item.link}
+            class:list={[
+              { "active-link": item.link.replace(/\/$/, "") === currPath },
+            ]}
+          >
+            {item.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>

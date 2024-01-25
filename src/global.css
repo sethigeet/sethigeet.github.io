@@ -1,0 +1,9 @@
+body {
+  background: theme("colors.background-gradient");
+  @apply min-h-screen text-gray-200;
+}
+
+.menu-link:hover,
+.active-link {
+  text-shadow: 0px 2px 18px theme("colors.primary");
+}

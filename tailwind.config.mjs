@@ -1,0 +1,14 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#4BCAEA",
+        background: "#031C40",
+        "background-gradient": "linear-gradient(0deg, #000c09 0%, #031f49 100%)",
+      }
+    },
+  },
+  plugins: [],
+};
