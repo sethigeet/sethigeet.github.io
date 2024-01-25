@@ -3,7 +3,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currPath = pathname.replace(/\/$/, "");
 ---
 
-<header class="mx-auto flex w-full max-w-7xl items-center justify-between p-6">
+<header class="mx-auto flex w-full items-center justify-between p-6">
   <a href="/" class="flex items-center">
     <div
       class="bg-primary m-4 grid h-10 w-10 place-items-center rounded-full text-white"
@@ -17,8 +17,8 @@ const currPath = pathname.replace(/\/$/, "");
   <ul class="inline-flex items-center gap-5 text-lg font-medium">
     {
       [
-        { text: "Projects", link: "/projects" },
         { text: "About", link: "/about" },
+        { text: "Projects", link: "/projects" },
         { text: "Blog", link: "/blog" },
         { text: "Contact", link: "/contact" },
       ].map((item) => (

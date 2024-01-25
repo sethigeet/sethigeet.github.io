@@ -19,13 +19,15 @@ import "../global.css";
   <meta name="description" content={documentDescription} />
   <link rel="icon" href="/favicon.ico" />
   <title>{documentTitle && `${documentTitle} | `} Geet Sethi</title>
-  <body class="flex w-full flex-col">
-    <Header />
+  <body>
+    <div class="mx-auto flex min-h-screen max-w-7xl flex-col p-2 md:p-4">
+      <Header />
 
-    <main class="flex-1">
-      <slot />
-    </main>
+      <main class="mx-auto w-full flex-1">
+        <slot />
+      </main>
 
-    <Footer />
+      <Footer />
+    </div>
   </body>
 </html>
