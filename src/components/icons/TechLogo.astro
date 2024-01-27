@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+
+import { LOGOS } from "@lib/logos";
+import type { Technology } from "@lib/logos";
+
+interface Props {
+  name: Technology;
+  size?: number;
+}
+const { name, size = 60 } = Astro.props;
+const logo = LOGOS.find((logo) => logo.name === name)!;
+---
+
+<img
+  src={logo.path}
+  alt={logo.name}
+  class="object-contain"
+  width={size}
+  height={size}
+/>

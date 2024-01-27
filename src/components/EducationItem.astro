@@ -1,0 +1,28 @@
+---
+interface Props {
+  college: string;
+  startDate: string;
+  endDate: string;
+  keyPoints: string[];
+  logo: string;
+  isCurrent: boolean;
+}
+const { college, startDate, endDate, keyPoints, logo, isCurrent } = Astro.props;
+---
+
+<div
+  class="bg-primary/5 border-l-primary/20 border-b-primary/20 flex gap-6 border-b-[1px] border-l-8 p-5"
+>
+  <img class="logo" width="40px" height="40px" src={logo} alt={college} />
+  <div>
+    <span class="text-xl font-bold text-slate-300">
+      {college}
+    </span>
+    <p class="font-mono font-medium text-slate-400">
+      {startDate} - {endDate}
+    </p>
+    <ul class="key-points-list ml-4 text-slate-300">
+      {keyPoints.map((responsibility) => <li>{responsibility}</li>)}
+    </ul>
+  </div>
+</div>

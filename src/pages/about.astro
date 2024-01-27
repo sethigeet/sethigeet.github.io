@@ -1,0 +1,60 @@
+---
+import { EducationItem, TechLogo } from "@components/index.astro";
+import { LOGOS } from "@lib/logos";
+import { MainLayout } from "@layouts/index.astro";
+---
+
+<MainLayout
+  title="About"
+  description="My name is Geet Sethi. I'm currently a student at the Indian Institute of Technology Bombay. I'm passionate about solving real world problems."
+>
+  <section>
+    <h1 class="text-4xl font-bold">Welcome!</h1>
+    <p class="mt-4 text-xl font-semibold text-slate-200">
+      I'm <b class="font-semibold text-white">Geet Sethi</b>. I'm currently a
+      student at the Indian Institute of Technology Bombay.
+    </p>
+    <div class="mt-6 text-slate-300">
+      <p class="mt-2 text-lg">
+        My expertise is in both frontend as well as backend development. I also
+        have some experience in low level systems programming. I also have
+        interest in UI/UX design.
+      </p>
+      <p class="mt-2 text-lg">
+        I have a lot of experience with technologies such as:
+        <b class="font-medium">
+          JavaScript/TypeScript, Node.js, React.js, Next.js, Express,
+          TailwindCSS, Python, Rust, C++, REST/GraphQL, SQL/NoSQL, and many
+          more!
+        </b>
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="animate-marquee relative mt-14 flex select-none gap-6 overflow-clip hover:[animation-play-state:paused]"
+  >
+    <div class="flex min-w-full flex-shrink-0 gap-6">
+      {LOGOS.map((logo) => <TechLogo name={logo.name} />)}
+    </div>
+
+    <!-- Logos duplicated for scrolling effect -->
+    <div aria-hidden="true" class="flex min-w-full flex-shrink-0 gap-6">
+      {LOGOS.map((logo) => <TechLogo name={logo.name} />)}
+    </div>
+  </section>
+
+  <section class="mt-6">
+    <h2 class="text-3xl font-semibold">Education</h2>
+    <div class="mt-6">
+      <EducationItem
+        logo="/src/components/icons/iitb-logo.svg"
+        college="Indian Institute of Technology Bombay"
+        startDate="July 2023"
+        endDate="April 2027"
+        keyPoints={["Point 1"]}
+        isCurrent
+      />
+    </div>
+  </section>
+</MainLayout>
