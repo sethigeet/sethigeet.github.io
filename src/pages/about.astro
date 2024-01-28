@@ -2,6 +2,8 @@
 import { EducationItem, TechLogo } from "@components/index.astro";
 import { LOGOS } from "@components/TechLogo.astro";
 import { MainLayout } from "@layouts/index.astro";
+
+import IITBLogo from "../components/icons/iitb-logo.svg";
 ---
 
 <MainLayout
@@ -48,7 +50,7 @@ import { MainLayout } from "@layouts/index.astro";
     <h2 class="text-3xl font-semibold">Education</h2>
     <div class="mt-6">
       <EducationItem
-        logo="/src/components/icons/iitb-logo.svg"
+        logo={IITBLogo}
         college="Indian Institute of Technology Bombay"
         startDate="July 2023"
         endDate="April 2027"
