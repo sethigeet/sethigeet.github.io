@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+
+import type { Technology } from "@lib/logos";
+
+interface Logo {
+  name: Technology;
+  path: string;
+}
+// prettier-ignore
+export const LOGOS: Logo[] = [
+  { name: "Apache",  path: "./icons/tech-logos/apache.svg" },
+  { name: "Astro", path: "./icons/tech-logos/astro.png" },
+  { name: "AWS", path: "./icons/tech-logos/aws.svg" },
+  { name: "C", path: "./icons/tech-logos/c.svg" },
+  { name: "C++", path: "./icons/tech-logos/c++.svg" },
+  { name: "CSS", path: "./icons/tech-logos/css.svg" },
+  { name: "Django", path: "./icons/tech-logos/django.svg" },
+  { name: "Docker", path: "./icons/tech-logos/docker.svg" },
+  { name: "FastAPI", path: "./icons/tech-logos/fastapi.svg" },
+  { name: "Figma", path: "./icons/tech-logos/figma.svg" },
+  { name: "Git", path: "./icons/tech-logos/git.svg" },
+  { name: "HTML", path: "./icons/tech-logos/html.svg" },
+  { name: "JavaScript", path: "./icons/tech-logos/javascript.svg" },
+  { name: "Linux", path: "./icons/tech-logos/linux.svg" },
+  { name: "Lua", path: "./icons/tech-logos/lua.svg" },
+  { name: "MongoDB", path: "./icons/tech-logos/mongodb.svg" },
+  { name: "MySQL", path: "./icons/tech-logos/mysql.svg" },
+  { name: "Next.js", path: "./icons/tech-logos/nextjs.png" },
+  { name: "Nginx", path: "./icons/tech-logos/nginx.svg" },
+  { name: "Node.js", path: "./icons/tech-logos/nodejs.svg" },
+  { name: "PostgreSQL", path: "./icons/tech-logos/postgresql.svg" },
+  { name: "Python", path: "./icons/tech-logos/python.svg" },
+  { name: "React", path: "./icons/tech-logos/react.svg" },
+  { name: "Redis", path: "./icons/tech-logos/redis.svg" },
+  { name: "Rust", path: "./icons/tech-logos/rust.png" },
+  { name: "SCSS", path: "./icons/tech-logos/sass.svg" },
+  { name: "Tailwind CSS", path: "./icons/tech-logos/tailwind.svg" },
+  { name: "TypeScript", path: "./icons/tech-logos/typescript.svg" },
+];
+
+interface Props {
+  name: Technology;
+  size?: number;
+}
+const { name, size = 60 } = Astro.props;
+
+const logo = LOGOS.find((logo) => logo.name === name);
+if (!logo) {
+  throw new Error(`${name} is not a valid technology name`);
+}
+
+// Import the logo for Astro's Image component
+const logoSrc = await import(logo.path);
+---
+
+<Image
+  src={logoSrc.default}
+  alt={logo.name}
+  class="object-contain"
+  width={size}
+  height={size}
+/>

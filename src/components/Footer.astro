@@ -1,31 +1,35 @@
 ---
-import { GithubIcon, TwitterIcon, LinkedInIcon } from "@components/index.astro";
+import { Image } from "astro:assets";
+
+import githubIcon from "./icons/github.svg";
+import twitterIcon from "./icons/twitter.svg";
+import linkedinIcon from "./icons/linkedin.svg";
 ---
 
 <footer class="mx-auto mt-auto flex w-full justify-between p-6 text-slate-400">
   <p class="font-mono">Copyright &copy; 2024 Geet Sethi</p>
   <ul class="inline-flex items-center gap-3">
     <!-- GitHub -->
-    <li class="h-5 w-5 transition-colors duration-200 hover:text-primary">
+    <li class="h-5 w-5">
       <a href="https://github.com/sethigeet" target="_blank">
-        <GithubIcon />
+        <Image src={githubIcon} alt="GitHub icon" class="invert" />
       </a>
     </li>
 
     <!-- X (Twitter) -->
-    <li class="h-5 w-5 transition-colors duration-200 hover:text-primary">
+    <li class="h-5 w-5">
       <a href="https://twitter.com/_geet_sethi_" target="_blank">
-        <TwitterIcon />
+        <Image src={twitterIcon} alt="X (Twitter) icon" class="invert" />
       </a>
     </li>
 
     <!-- LinkedIn -->
-    <li class="h-5 w-5 transition-colors duration-200 hover:text-primary">
+    <li class="h-5 w-5">
       <a
         href="https://www.linkedin.com/in/geet-sethi-085079281/"
         target="_blank"
       >
-        <LinkedInIcon />
+        <Image src={linkedinIcon} alt="LinkedIn icon" class="invert" />
       </a>
     </li>
   </ul>
