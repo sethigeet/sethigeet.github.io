@@ -51,11 +51,13 @@ if (!logo) {
 }
 
 // Import the logo for Astro's Image component
-const logoSrc = await import(logo.path);
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "./icons/tech-logos/*.{svg,png,jpg,jpeg}",
+);
 ---
 
 <Image
-  src={logoSrc.default}
+  src={images[logo.path]()}
   alt={logo.name}
   class="object-contain"
   width={size}
