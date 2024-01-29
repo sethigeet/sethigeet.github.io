@@ -52,7 +52,7 @@ if (!logo) {
 
 // Import the logo for Astro's Image component
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "@assets/icons/tech-logos/*.{svg,png,jpg,jpeg}",
+  "/src/assets/icons/tech-logos/*.{svg,png,jpg,jpeg}",
 );
 ---
 

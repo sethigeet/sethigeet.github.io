@@ -1,39 +1,93 @@
 ---
+import { Image } from "astro:assets";
+import hamburgerIcon from "@assets/icons/hamburger.svg";
+import xMarkIcon from "@assets/icons/x-mark.svg";
+
 const pathname = new URL(Astro.request.url).pathname;
 const currPath = pathname.replace(/\/$/, "");
 ---
 
-<header class="mx-auto flex w-full items-center justify-between p-6">
+<header class="mx-auto flex w-full items-center justify-between px-2 py-6">
   <a href="/" class="flex items-center">
     <div
-      class="m-4 grid h-10 w-10 place-items-center rounded-full bg-primary text-white"
+      class="grid h-10 w-10 place-items-center rounded-full bg-primary text-white"
     >
       GS
     </div>
-    <span class="text-2xl font-semibold">Geet Sethi</span>
+    <span class="ml-4 text-2xl font-semibold">Geet Sethi</span>
   </a>
 
-  <nav></nav>
-  <ul class="inline-flex items-center gap-5 text-lg font-medium">
-    {
-      [
-        { text: "Home", link: "/" },
-        { text: "About", link: "/about" },
-        { text: "Projects", link: "/projects" },
-        { text: "Blog", link: "/blog" },
-        { text: "Contact", link: "/contact" },
-      ].map((item) => (
-        <li class="menu-link transition-all duration-200 hover:text-primary">
-          <a
-            href={item.link}
-            class:list={[
-              { "active-link": item.link.replace(/\/$/, "") === currPath },
-            ]}
-          >
-            {item.text}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <nav class="z-20">
+    <ul
+      id="menu"
+      class="hidden items-center gap-5 text-lg font-medium md:inline-flex"
+    >
+      {
+        [
+          { text: "Home", link: "/" },
+          { text: "About", link: "/about" },
+          { text: "Projects", link: "/projects" },
+          { text: "Blog", link: "/blog" },
+          { text: "Contact", link: "/contact" },
+        ].map((item) => (
+          <li class="menu-link transition-all duration-200 hover:text-primary">
+            <a
+              href={item.link}
+              class:list={[
+                { "active-link": item.link.replace(/\/$/, "") === currPath },
+              ]}
+            >
+              {item.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <button id="menu-open-btn" class="rounded-lg hover:bg-primary/10 md:hidden">
+      <Image
+        src={hamburgerIcon}
+        alt="menu open icon"
+        class="invert"
+        width={40}
+        height={40}
+      />
+    </button>
+    <button
+      id="menu-close-btn"
+      class="hidden rounded-lg hover:bg-primary/10 md:hidden"
+    >
+      <Image
+        src={xMarkIcon}
+        alt="menu close icon"
+        class="invert"
+        width={40}
+        height={40}
+      />
+    </button>
+  </nav>
 </header>
+
+<script lang="ts">
+  const menu = document.querySelector("#menu");
+  const menuOpenButton = document.querySelector("#menu-open-btn");
+  const menuCloseButton = document.querySelector("#menu-close-btn");
+
+  const toggleMenu = () => {
+    [
+      "absolute",
+      "flex",
+      "flex-col",
+      "inset-0",
+      "h-screen",
+      "w-screen",
+      "bg-slate-900",
+      "bg-opacity-90",
+      "hidden",
+      "pt-24",
+    ].forEach((cls) => menu.classList.toggle(cls));
+    menuOpenButton.classList.toggle("hidden");
+    menuCloseButton.classList.toggle("hidden");
+  };
+  menuOpenButton.addEventListener("click", toggleMenu);
+  menuCloseButton.addEventListener("click", toggleMenu);
+</script>
