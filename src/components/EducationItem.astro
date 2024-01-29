@@ -7,13 +7,20 @@ interface Props {
   endDate: string;
   keyPoints: string[];
   logo: ImageMetadata;
-  isCurrent: boolean;
+  isCurrent?: boolean;
 }
-const { college, startDate, endDate, keyPoints, logo, isCurrent } = Astro.props;
+const {
+  college,
+  startDate,
+  endDate,
+  keyPoints,
+  logo,
+  isCurrent = false,
+} = Astro.props;
 ---
 
 <div
-  class="flex gap-6 border-b-[1px] border-l-8 border-b-primary/20 border-l-primary/20 bg-primary/5 p-5"
+  class={`flex gap-6 border-b-[1px] border-l-8 border-b-primary/20 bg-primary/5 p-5 ${isCurrent ? "border-l-primary/50" : "border-l-primary/20"}`}
 >
   <Image class="logo" width={40} height={40} src={logo} alt={college} />
   <div>
