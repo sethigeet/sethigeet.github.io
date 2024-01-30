@@ -33,14 +33,11 @@ import IITBLogo from "@assets/icons/iitb-logo.svg";
   </section>
 
   <section
-    class="relative mt-14 flex animate-marquee select-none gap-6 overflow-clip hover:[animation-play-state:paused]"
+    class="group relative mt-14 flex select-none gap-6 overflow-x-hidden"
   >
-    <div class="flex min-w-full flex-shrink-0 gap-6">
-      {LOGOS.map((logo) => <TechLogo name={logo.name} />)}
-    </div>
-
-    <!-- Logos duplicated for scrolling effect -->
-    <div aria-hidden="true" class="flex min-w-full flex-shrink-0 gap-6">
+    <div
+      class="flex flex-shrink-0 animate-marquee gap-6 group-hover:[animation-play-state:paused]"
+    >
       {LOGOS.map((logo) => <TechLogo name={logo.name} />)}
     </div>
   </section>

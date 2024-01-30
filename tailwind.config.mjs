@@ -10,12 +10,12 @@ export default {
           "linear-gradient(0deg, #000c09 0%, #031f49 100%)",
       },
       animation: {
-        marquee: "marquee 30s linear infinite reverse",
+        marquee: "marquee 30s linear infinite",
       },
       keyframes: {
         marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-100%)" },
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0%)" },
         },
       },
     },
