@@ -5,18 +5,10 @@ interface Props {
   college: string;
   startDate: string;
   endDate: string;
-  keyPoints: string[];
   logo: ImageMetadata;
   isCurrent?: boolean;
 }
-const {
-  college,
-  startDate,
-  endDate,
-  keyPoints,
-  logo,
-  isCurrent = false,
-} = Astro.props;
+const { college, startDate, endDate, logo, isCurrent = false } = Astro.props;
 ---
 
 <div
@@ -31,7 +23,7 @@ const {
       {startDate} - {endDate}
     </p>
     <ul class="key-points-list ml-4 text-slate-300">
-      {keyPoints.map((responsibility) => <li>{responsibility}</li>)}
+      <slot />
     </ul>
   </div>
 </div>
