@@ -12,3 +12,8 @@ body {
   content: "►  ";
   color: theme("colors.primary");
 }
+
+.tippy-box[data-theme='default'] {
+  border-radius: 0.5rem;
+  word-wrap: break-word;
+}
