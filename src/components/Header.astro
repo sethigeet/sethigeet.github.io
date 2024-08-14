@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
+
 import hamburgerIcon from "@assets/icons/hamburger.svg";
 import xMarkIcon from "@assets/icons/x-mark.svg";
+import logo from "@assets/logo.png";
 
 const pathname = new URL(Astro.request.url).pathname;
 const currPath = pathname.replace(/\/$/, "");
@@ -9,11 +11,13 @@ const currPath = pathname.replace(/\/$/, "");
 
 <header class="mx-auto flex w-full items-center justify-between px-2 py-6">
   <a href="/" class="flex items-center">
-    <div
-      class="grid h-10 w-10 place-items-center rounded-full bg-primary text-white"
-    >
-      GS
-    </div>
+    <Image
+      src={logo}
+      alt="logo"
+      width={40}
+      height={40}
+      class="h-10 w-10 rounded-full"
+    />
     <span class="ml-4 text-2xl font-semibold">Geet Sethi</span>
   </a>
 
