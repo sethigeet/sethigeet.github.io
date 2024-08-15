@@ -9,7 +9,7 @@ body {
 }
 
 .key-points-list li::marker {
-  content: "►  ";
+  content: "❯  ";
   color: theme("colors.primary");
 }
 
