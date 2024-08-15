@@ -20,10 +20,12 @@ export type Technology =
   | "MySQL"
   | "PostgreSQL"
   | "Redis"
+  | "ChromaDB"
   | "Python"
   | "Django"
   | "FastAPI"
   | "C"
   | "C++"
   | "Rust"
-  | "Lua";
+  | "Lua"
+  | "LangChain";
