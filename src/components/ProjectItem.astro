@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+
+import githubIcon from "@assets/icons/github.svg";
+import type { Technology } from "@lib/logos";
+import TechLogo from "./TechLogo.astro";
+
+interface Props {
+  name: string;
+  skills: Technology[];
+  coverImage: ImageMetadata;
+  sourceCodeUrl?: string;
+}
+const { name, skills, coverImage, sourceCodeUrl } = Astro.props;
+---
+
+<article
+  class="group my-4 grid grid-cols-1 items-center gap-20 rounded-lg bg-primary/5 p-6 py-8 md:grid-cols-2"
+>
+  <div>
+    <h2
+      class="mb-4 flex items-center gap-4 text-2xl font-semibold text-primary sm:text-3xl md:text-4xl"
+    >
+      {name}
+      {
+        sourceCodeUrl && (
+          <a
+            class="flex gap-2 rounded-md bg-orange-300 p-1 text-xs font-medium text-background"
+            href={sourceCodeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src={githubIcon} alt="GitHub icon" class="w-4" />
+            <span class="open-source-badge">Open Source</span>
+          </a>
+        )
+      }
+    </h2>
+
+    <div class="text-slate-300">
+      <slot />
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      {skills.map((skill) => <TechLogo name={skill} size={30} />)}
+    </div>
+  </div>
+
+  <Image
+    class="w-full rounded-sm group-even:order-first"
+    style="filter: drop-shadow(0 0 3rem rgb(75 202 234 / 0.35));"
+    src={coverImage}
+    alt={`${name} showcase`}
+  />
+</article>

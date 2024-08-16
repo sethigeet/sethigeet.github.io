@@ -22,8 +22,8 @@ const { college, startDate, endDate, logo, isCurrent = false } = Astro.props;
     <p class="font-mono font-medium text-slate-400">
       {startDate} - {endDate}
     </p>
-    <ul class="key-points-list ml-4 text-slate-300">
+    <div class="text-slate-300">
       <slot />
-    </ul>
+    </div>
   </div>
 </div>

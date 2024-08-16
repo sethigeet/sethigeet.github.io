@@ -1,7 +1,99 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import ProjectItem from "@components/ProjectItem.astro";
+
+import InstiGPTShowcase from "@assets/project-showcases/instigpt.png";
 ---
 
 <MainLayout title="Projects">
-  <h1 class="text-4xl font-bold text-slate-300">Coming soon...</h1>
+  <section>
+    <h1 class="text-4xl font-bold">My Projects</h1>
+    <p class="mt-4 text-xl font-semibold text-slate-200">
+      Here are some of my projects showcasing some of my skills...
+    </p>
+  </section>
+
+  <section>
+    <ProjectItem
+      name="Related Party Transactions"
+      skills={[
+        "Rust",
+        "C#",
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Node.js",
+        "Docker",
+        "TailwindCSS",
+        "MSSQL",
+      ]}
+      coverImage={InstiGPTShowcase}
+    >
+      A full stack application made for HDFC bank which lets them manage the
+      transactions of their related parties by collating data from multiple
+      places and displaying important data and its trends.
+    </ProjectItem>
+
+    <ProjectItem
+      name="InstiGPT"
+      skills={[
+        "LangChain",
+        "ChromaDB",
+        "Next.js",
+        "React",
+        "Node.js",
+        "Docker",
+        "PostgreSQL",
+        "TailwindCSS",
+        "TypeScript",
+        "Python",
+        "FastAPI",
+      ]}
+      coverImage={InstiGPTShowcase}
+      sourceCodeUrl="https://github.com/AI-Community-IIT-Bombay/InstiGPT"
+    >
+      A <b>ChatGPT equivalent for IIT Bombay</b> which can answer all questions related
+      to IIT Bombay. Whether it be academics, hostels, fests, or anything else, InstiGPT
+      has got you covered.
+      <ul class="key-points-list ml-6 mt-2">
+        <li>
+          Currently offered to <b>over 14k</b> students at IIT Bomaby
+        </li>
+        <li>
+          <b>Over 12k</b> questions asked within 3 months
+        </li>
+        <li>
+          Answers questions using <b>live information</b> from internal systems as
+          well as the internet
+        </li>
+        <li>Quick response times (6-7 seconds)</li>
+      </ul>
+    </ProjectItem>
+
+    <ProjectItem
+      name="Ctrl-Alt-Anywhere"
+      skills={[
+        "Rust",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "TailwindCSS",
+      ]}
+      coverImage={InstiGPTShowcase}
+      sourceCodeUrl="https://github.com/sethigeet/Ctrl-Atl-Anywhere"
+    >
+      A <b>desktop application</b> that allows you to control your computers from
+      a single place.
+      <ul class="key-points-list ml-6 mt-2">
+        <li><b>Turn on and shut down</b> your computers</li>
+        <li><b>Remote </b>into your computers</li>
+        <li>
+          Store passwords for all your computers in a single <b
+            >encrypted store</b
+          >
+        </li>
+      </ul>
+    </ProjectItem>
+  </section>
 </MainLayout>
