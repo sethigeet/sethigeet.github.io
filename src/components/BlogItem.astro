@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+
+import { getFriendlyDate } from "@lib/utils";
+
+const { post } = Astro.props;
+
+const publishedAtDateFriendly = getFriendlyDate(post.frontmatter.publishedAt);
+---
+
+<a href={post.url} class="hover:text-decoration-underline">
+  <article class="flex gap-6">
+    <Image
+      width="200"
+      class="align-self-start"
+      src={import(`../assets/blogs/${post.frontmatter.image.url}`)}
+      alt={post.frontmatter.image.alt}
+    />
+    <div class="post-title-area">
+      <span class="block max-w-[800px] text-4xl">{post.frontmatter.title}</span>
+      <div class="mb-3 mt-1 flex gap-4 font-mono">
+        <span class="font-semibold text-primary">{publishedAtDateFriendly}</span
+        >
+        <span>{post.frontmatter.minutesRead}</span>
+      </div>
+      <p class="max-w-[800px]">
+        {post.frontmatter.excerpt}{" "}
+        <span class="block font-bold">Read More ›</span>
+      </p>
+    </div>
+  </article>
+</a>
