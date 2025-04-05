@@ -1,11 +1,20 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 import { getFriendlyDate } from "@lib/utils";
 
 const { post } = Astro.props;
 
 const publishedAtDateFriendly = getFriendlyDate(post.frontmatter.publishedAt);
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/blogs/**/*.{png,jpg,jpeg,gif,svg}",
+);
+const imagePath = Object.keys(images).find((image) =>
+  image.includes(post.frontmatter.image.url),
+);
+const image = images[imagePath!];
 ---
 
 <a href={post.url} class="hover:text-decoration-underline">
@@ -13,7 +22,7 @@ const publishedAtDateFriendly = getFriendlyDate(post.frontmatter.publishedAt);
     <Image
       width="200"
       class="align-self-start"
-      src={import(`../assets/blogs/${post.frontmatter.image.url}`)}
+      src={image()}
       alt={post.frontmatter.image.alt}
     />
     <div class="post-title-area">
