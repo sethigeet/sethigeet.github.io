@@ -27,10 +27,13 @@ const image = images[imagePath!];
     />
     <div class="post-title-area">
       <span class="block max-w-[800px] text-4xl">{post.frontmatter.title}</span>
-      <div class="mb-3 mt-1 flex gap-4 font-mono">
+      <div class="mb-3 mt-1 flex items-center gap-2 font-mono">
         <span class="font-semibold text-primary">{publishedAtDateFriendly}</span
         >
-        <span>{post.frontmatter.minutesRead}</span>
+        <span class="text-sm text-slate-200">&#x2022;</span>
+        <span class="text-sm text-slate-400"
+          >{post.frontmatter.minutesRead}</span
+        >
       </div>
       <p class="max-w-[800px]">
         {post.frontmatter.excerpt}{" "}

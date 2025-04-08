@@ -50,10 +50,6 @@ It employs $N_t$ inception modules to learn temporal convolution, i.e., convolut
 
 Translator Architecture
 
-![Inception Block](@assets/blogs/simvp/inception-block-architecture.png)
-
-Inception Block
-
 ### Spatial Decoder
 
 The decoder decodes the processed latent representation into the predicted future frame.
@@ -97,15 +93,15 @@ SimVP has demonstrated exceptional performance across various benchmark datasets
 
 What’s particularly impressive is that SimVP achieves these results without requiring auxiliary inputs or elaborate architectures and sophisticated training strategies that are common among competing approaches.
 
-|            | Moving MNIST |          |           | TrafficBG   |          |           | Human 3.6  |             |           |
-| ---------- | ------------ | -------- | --------- | ----------- | -------- | --------- | ---------- | ----------- | --------- |
-|            | MSE↓         | MAE↓     | SSIM↑     | MSE × 100 ↓ | MAE↓     | SSIM↑     | MSE / 10 ↓ | MAE / 100 ↓ | SSIM↑     |
-| ConvLSTM   | 103.3        | 182.9    | 0.707     | 48.5        | 17.7     | 0.978     | 50.4       | 18.9        | 0.776     |
-| PredRNN    | 56.8         | 126.1    | 0.867     | 46.4        | 17.1     | 0.971     | 48.4       | 18.9        | 0.781     |
-| CausalLSTM | 46.5         | 106.8    | 0.898     | 44.8        | 16.9     | 0.977     | 45.8       | 17.2        | 0.851     |
-| MIM        | 44.2         | 101.1    | 0.910     | 42.9        | 16.6     | 0.971     | 42.9       | 17.8        | 0.790     |
-| E3D-LSTM   | 41.3         | 86.4     | 0.910     | 43.2        | 16.9     | 0.979     | 46.4       | 16.6        | 0.869     |
-| PhyDNet    | 24.4         | 70.3     | 0.947     | 41.9        | **16.2** | **0.982** | 36.9       | **16.2**    | 0.901     |
-| **SimVP**  | **23.8**     | **68.9** | **0.948** | **41.4**    | **16.2** | **0.982** | **31.6**   | **15.1**    | **0.904** |
+|            |          | Moving MNIST |           |             | TrafficBG |           |            | Human 3.6   |           |
+| ---------- | -------- | ------------ | --------- | ----------- | --------- | --------- | ---------- | ----------- | --------- |
+|            | MSE ↓    | MAE ↓        | SSIM ↑    | MSE × 100 ↓ | MAE ↓     | SSIM ↑    | MSE / 10 ↓ | MAE / 100 ↓ | SSIM ↑    |
+| ConvLSTM   | 103.3    | 182.9        | 0.707     | 48.5        | 17.7      | 0.978     | 50.4       | 18.9        | 0.776     |
+| PredRNN    | 56.8     | 126.1        | 0.867     | 46.4        | 17.1      | 0.971     | 48.4       | 18.9        | 0.781     |
+| CausalLSTM | 46.5     | 106.8        | 0.898     | 44.8        | 16.9      | 0.977     | 45.8       | 17.2        | 0.851     |
+| MIM        | 44.2     | 101.1        | 0.910     | 42.9        | 16.6      | 0.971     | 42.9       | 17.8        | 0.790     |
+| E3D-LSTM   | 41.3     | 86.4         | 0.910     | 43.2        | 16.9      | 0.979     | 46.4       | 16.6        | 0.869     |
+| PhyDNet    | 24.4     | 70.3         | 0.947     | 41.9        | **16.2**  | **0.982** | 36.9       | **16.2**    | 0.901     |
+| **SimVP**  | **23.8** | **68.9**     | **0.948** | **41.4**    | **16.2**  | **0.982** | **31.6**   | **15.1**    | **0.904** |
 
 Many more experiments were done by the authors of the paper, which showed that, although there is room for improvement, the simple SimVP also generalizes well across different datasets and can extend very well to different predictive lengths.

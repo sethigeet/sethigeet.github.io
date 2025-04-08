@@ -1,0 +1,51 @@
+---
+import TOCHeading from "./TOCHeading.astro";
+
+export interface Heading {
+  depth: number;
+  slug: string;
+  title: string;
+}
+
+interface Props {
+  headings: Array<Heading>;
+}
+
+function buildHierarchy(headings: any) {
+  const toc: any[] = [];
+  const parentHeadings = new Map();
+
+  if (!headings) return toc;
+
+  headings.forEach((h: any) => {
+    const heading = { ...h, subheadings: [] };
+    parentHeadings.set(heading.depth, heading);
+    // Change 2 to 1 if your markdown includes your <h1>
+    if (heading.depth === 1) {
+      toc.push(heading);
+    } else {
+      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+    }
+  });
+  return toc;
+}
+
+const { headings } = Astro.props;
+
+const toc = buildHierarchy(headings);
+---
+
+{
+  toc && toc.length > 0 && (
+    <nav class="toc border-l border-slate-200 p-4 dark:border-slate-700">
+      <h2 class="toc-title mb-2 text-sm font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+        On this page
+      </h2>
+      <ul class="m-0 list-none p-0" id="toc-list">
+        {toc.map((heading) => (
+          <TOCHeading heading={heading} />
+        ))}
+      </ul>
+    </nav>
+  )
+}

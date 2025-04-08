@@ -1,6 +1,6 @@
 ---
-import MainLayout from "@layouts/MainLayout.astro";
-import BlogItem from "@components/BlogItem.astro";
+import { MainLayout } from "@layouts/index.astro";
+import { BlogItem } from "@components/index.astro";
 
 const allPosts = await Astro.glob("./blogs/*.{md,mdx}");
 ---
