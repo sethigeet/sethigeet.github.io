@@ -3,7 +3,7 @@ layout: "@layouts/BlogLayout.astro"
 title: "SimVP: A Simpler Path to Better Video Prediction"
 excerpt: "SimVP offers a simple yet effective approach to video prediction, challenging the reliance on complex architectures. By utilizing basic CNNs and MSE loss, it captures spatial and temporal dependencies efficiently. Achieving state-of-the-art performance on benchmark datasets like Moving MNIST and Human3.6, SimVP demonstrates that simplicity can yield powerful results in video forecasting."
 image:
-  url: "simvp/model-architecture.png"
+  url: "simvp/cover.png"
   alt: "SimVP"
 publishedAt: 2025-04-04
 ---
