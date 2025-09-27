@@ -2,7 +2,9 @@
 import MainLayout from "@layouts/MainLayout.astro";
 import { ProjectItem } from "@components/index.astro";
 
+import CtrlAltAnywhereShowcase from "@assets/project-showcases/ctrl-alt-anywhere.png";
 import InstiGPTShowcase from "@assets/project-showcases/instigpt.png";
+import FinSightShowcase from "@assets/project-showcases/finsight.png";
 ---
 
 <MainLayout title="Projects">
@@ -14,6 +16,30 @@ import InstiGPTShowcase from "@assets/project-showcases/instigpt.png";
   </section>
 
   <section>
+    <ProjectItem
+      name="FinSight"
+      skills={[
+        "Python",
+        "LangChain",
+        "Transformers",
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Node.js",
+        "Docker",
+        "TailwindCSS",
+        "PostgreSQL",
+        "ChromaDB",
+      ]}
+      coverImage={FinSightShowcase}
+      sourceCodeUrl="https://github.com/sethigeet/FinSight"
+    >
+      A full stack application powered by a <b>state-of-the-art agentic RAG</b>
+      <b>(Retrieval Augmented Generation) pipeline</b> which answers the most difficult
+      multi-hop quantitative & qualitative queries from information heavy financial
+      documents such as the SEC 10K reports.
+    </ProjectItem>
+
     <ProjectItem
       name="Related Party Transactions"
       skills={[
@@ -80,8 +106,8 @@ import InstiGPTShowcase from "@assets/project-showcases/instigpt.png";
         "PostgreSQL",
         "TailwindCSS",
       ]}
-      coverImage={InstiGPTShowcase}
-      sourceCodeUrl="https://github.com/sethigeet/Ctrl-Atl-Anywhere"
+      coverImage={CtrlAltAnywhereShowcase}
+      sourceCodeUrl="https://github.com/sethigeet/Ctrl-Alt-Anywhere"
     >
       A <b>desktop application</b> that allows you to control your computers from
       a single place.

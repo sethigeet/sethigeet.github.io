@@ -30,4 +30,5 @@ export type Technology =
   | "C#"
   | "Rust"
   | "Lua"
-  | "LangChain";
+  | "LangChain"
+  | "Transformers";
