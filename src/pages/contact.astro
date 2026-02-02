@@ -1,7 +1,68 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "@layouts/MainLayout.astro";
+
+import githubIcon from "@assets/icons/github.svg";
+import twitterIcon from "@assets/icons/twitter.svg";
+import linkedinIcon from "@assets/icons/linkedin.svg";
 ---
 
-<MainLayout title="Contact">
-  <h1 class="text-4xl font-bold text-slate-300">Coming soon...</h1>
+<MainLayout title="Contact" description="Get in touch with Geet Sethi">
+  <section>
+    <h1 class="text-4xl font-bold">Get In Touch</h1>
+    <p class="mt-4 text-xl font-semibold text-slate-200">
+      Feel free to reach out! I'm always open to discussing new opportunities,
+      collaborations, or just having a chat.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold">Email</h2>
+    <p class="mt-4 text-lg text-slate-300">
+      The best way to reach me is via email:
+    </p>
+    <a
+      href="mailto:sethigeet@gmail.com"
+      class="mt-2 inline-block text-xl font-medium text-primary hover:underline"
+    >
+      geetsethi05@gmail.com
+    </a>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold">Socials</h2>
+    <p class="mt-4 text-lg text-slate-300">
+      You can also find me on these platforms:
+    </p>
+    <ul class="mt-4 flex items-center gap-6">
+      <!-- GitHub -->
+      <li class="h-8 w-8 transition-transform hover:scale-110">
+        <a href="https://github.com/sethigeet" target="_blank">
+          <Image src={githubIcon} alt="GitHub icon" class="h-8 w-8 invert" />
+        </a>
+      </li>
+
+      <!-- X (Twitter) -->
+      <li class="h-8 w-8 transition-transform hover:scale-110">
+        <a href="https://twitter.com/_geet_sethi_" target="_blank">
+          <Image
+            src={twitterIcon}
+            alt="X (Twitter) icon"
+            class="h-8 w-8 invert"
+          />
+        </a>
+      </li>
+
+      <!-- LinkedIn -->
+      <li class="h-8 w-8 transition-transform hover:scale-110">
+        <a href="https://www.linkedin.com/in/sethigeet/" target="_blank">
+          <Image
+            src={linkedinIcon}
+            alt="LinkedIn icon"
+            class="h-8 w-8 invert"
+          />
+        </a>
+      </li>
+    </ul>
+  </section>
 </MainLayout>
