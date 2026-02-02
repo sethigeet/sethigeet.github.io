@@ -1,8 +1,24 @@
 ---
+import type { MarkdownInstance } from "astro";
+
 import { MainLayout } from "@layouts/index.astro";
 import { BlogItem } from "@components/index.astro";
 
-const allPosts = await Astro.glob("./blogs/*.{md,mdx}");
+type Frontmatter = {
+  title: string;
+  excerpt: string;
+  image: {
+    url: string;
+    alt: string;
+  };
+  publishedAt: string;
+};
+
+const allPosts = Object.values(
+  import.meta.glob<MarkdownInstance<Frontmatter>>("./blogs/*.{md,mdx}", {
+    eager: true,
+  }),
+);
 ---
 
 <MainLayout title="Blogs">

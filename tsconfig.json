@@ -9,4 +9,6 @@
       "@assets/*": ["assets/*"],
     },
   },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
 }
