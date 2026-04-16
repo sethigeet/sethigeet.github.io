@@ -5,6 +5,7 @@ import { Tooltips } from "astro-tooltips";
 
 import { Header, Footer, TOC } from "@components/index.astro";
 import type { Heading } from "@components/TOC.astro";
+import { getFriendlyDate } from "@lib/utils";
 
 interface Props {
   frontmatter: {
@@ -23,41 +24,61 @@ interface Props {
 }
 
 const { frontmatter, headings } = Astro.props;
+const publishedAtDateFriendly = getFriendlyDate(frontmatter.publishedAt);
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content={frontmatter.excerpt} />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4BCAEA" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
-  />
-  <meta name="msapplication-TileColor" content="#4BCAEA" />
-  <meta name="theme-color" content="#4BCAEA" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={frontmatter.excerpt} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4BCAEA" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
+    />
+    <meta name="msapplication-TileColor" content="#0B0F12" />
+    <meta name="theme-color" content="#0B0F12" />
 
-  <title>{frontmatter.title} | Geet Sethi</title>
+    <title>{frontmatter.title} — Geet Sethi</title>
 
-  <Tooltips interactive={false} />
+    <Tooltips interactive={false} />
+  </head>
   <body>
-    <div class="mx-auto flex min-h-screen max-w-7xl flex-col p-2 md:p-4">
+    <div class="relative mx-auto flex min-h-screen max-w-[1280px] flex-col px-5 md:px-10">
       <Header />
 
-      <div class="grid items-start gap-8 lg:grid-cols-[minmax(0,3fr)_1fr]">
+      <!-- Article masthead -->
+      <section class="mt-12 md:mt-16">
+        <div class="section-tag">§ Journal entry</div>
+        <h1
+          class="mt-5 font-display text-[clamp(2.2rem,5.5vw,4.8rem)] leading-[1.02] tracking-masthead text-vellum"
+          style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
+        >
+          {frontmatter.title}
+        </h1>
+        <div class="mt-6 flex flex-wrap items-center gap-3 font-mono text-[0.7rem] uppercase tracking-widest text-bone">
+          <span>{publishedAtDateFriendly}</span>
+          <span class="text-ash">·</span>
+          <span>{frontmatter.minutesRead}</span>
+        </div>
+        <div class="mt-10 rule"></div>
+      </section>
+
+      <div class="mt-10 grid items-start gap-10 lg:grid-cols-[minmax(0,3fr)_1fr]">
         <main
-          class="prose prose-invert row-start-2 mx-auto w-full max-w-[100ch] flex-1 lg:col-span-1 lg:row-start-auto"
+          class="prose prose-invert row-start-2 mx-auto w-full max-w-[70ch] flex-1 lg:col-span-1 lg:row-start-auto"
         >
           <slot />
         </main>
 
         <aside
-          class="row-start-1 mb-8 lg:sticky lg:top-24 lg:col-span-1 lg:row-start-auto lg:mb-0 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto"
+          class="row-start-1 mb-8 lg:sticky lg:top-8 lg:col-span-1 lg:row-start-auto lg:mb-0 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto"
         >
           <TOC headings={headings} />
         </aside>
@@ -93,20 +114,17 @@ const { frontmatter, headings } = Astro.props;
                 if (activeHeadingTimeout) clearTimeout(activeHeadingTimeout);
 
                 if (activeLink && activeLink !== link) {
-                  activeLink.classList.remove("text-primary", "font-semibold");
-                  activeLink.classList.add(
-                    "text-slate-500",
-                    "dark:text-slate-400",
-                  );
+                  activeLink.classList.remove("text-ember", "font-medium");
+                  activeLink.classList.add("text-bone");
                 }
-                link.classList.remove("text-slate-500", "dark:text-slate-400");
-                link.classList.add("text-primary", "font-semibold");
+                link.classList.remove("text-bone");
+                link.classList.add("text-ember", "font-medium");
                 activeLink = link;
               } else {
                 if (link === activeLink) {
                   activeHeadingTimeout = setTimeout(() => {
-                    link.classList.remove("text-primary", "font-semibold");
-                    link.classList.add("text-slate-500", "dark:text-slate-400");
+                    link.classList.remove("text-ember", "font-medium");
+                    link.classList.add("text-bone");
                     activeLink = null;
                   }, 100);
                 }

@@ -8,15 +8,28 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
 ---
 
 <MainLayout title="Projects">
+  <!-- Masthead -->
   <section>
-    <h1 class="text-4xl font-bold">My Projects</h1>
-    <p class="mt-4 text-xl font-semibold text-slate-200">
-      Here are some of my projects showcasing some of my skills...
+    <div class="section-tag">§ 02 / Selected works</div>
+    <h1
+      class="font-display mt-6 max-w-4xl text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
+      style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
+    >
+      Things I have
+      <span class="italic text-ember" style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;">
+        built
+      </span>,
+      shipped, and learned from.
+    </h1>
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-bone">
+      A short catalog of projects — weekend experiments, team engineering,
+      and the occasional thing that found real users.
     </p>
   </section>
 
-  <section>
+  <section class="mt-20">
     <ProjectItem
+      index="01"
       name="FinSight"
       skills={[
         "Python",
@@ -34,13 +47,15 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
       coverImage={FinSightShowcase}
       sourceCodeUrl="https://github.com/sethigeet/FinSight"
     >
-      A full stack application powered by a <b>state-of-the-art agentic RAG</b>
-      <b>(Retrieval Augmented Generation) pipeline</b> which answers the most difficult
-      multi-hop quantitative & qualitative queries from information heavy financial
-      documents such as the SEC 10K reports.
+      A full-stack application powered by a
+      <span class="text-vellum">state-of-the-art agentic RAG</span>
+      (Retrieval Augmented Generation) pipeline, which answers the most
+      difficult multi-hop quantitative &amp; qualitative queries from
+      information-heavy financial documents such as SEC 10-K reports.
     </ProjectItem>
 
     <ProjectItem
+      index="02"
       name="Related Party Transactions"
       skills={[
         "Rust",
@@ -55,12 +70,14 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
       ]}
       coverImage={InstiGPTShowcase}
     >
-      A full stack application made for HDFC bank which lets them manage the
+      A full-stack application made for
+      <span class="text-vellum">HDFC Bank</span> which lets them manage the
       transactions of their related parties by collating data from multiple
-      places and displaying important data and its trends.
+      sources and surfacing important trends in a single dashboard.
     </ProjectItem>
 
     <ProjectItem
+      index="03"
       name="InstiGPT"
       skills={[
         "LangChain",
@@ -78,25 +95,19 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
       coverImage={InstiGPTShowcase}
       sourceCodeUrl="https://github.com/AI-Community-IIT-Bombay/InstiGPT"
     >
-      A <b>ChatGPT equivalent for IIT Bombay</b> which can answer all questions related
-      to IIT Bombay. Whether it be academics, hostels, fests, or anything else, InstiGPT
-      has got you covered.
-      <ul class="key-points-list ml-6 mt-2">
-        <li>
-          Currently offered to <b>over 14k</b> students at IIT Bomaby
-        </li>
-        <li>
-          <b>Over 12k</b> questions asked within 3 months
-        </li>
-        <li>
-          Answers questions using <b>live information</b> from internal systems as
-          well as the internet
-        </li>
-        <li>Quick response times (6-7 seconds)</li>
+      A <span class="text-vellum">ChatGPT equivalent for IIT Bombay</span> that
+      answers anything related to the institute — academics, hostels, fests,
+      whatever you throw at it.
+      <ul class="key-points-list mt-4">
+        <li>Offered to <span class="text-vellum">over 14,000 students</span> at IITB.</li>
+        <li><span class="text-vellum">Over 12,000 questions</span> asked within three months.</li>
+        <li>Answers using <span class="text-vellum">live information</span> from internal systems and the open web.</li>
+        <li>Quick response times — typically 6–7 seconds.</li>
       </ul>
     </ProjectItem>
 
     <ProjectItem
+      index="04"
       name="Ctrl-Alt-Anywhere"
       skills={[
         "Rust",
@@ -109,16 +120,12 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
       coverImage={CtrlAltAnywhereShowcase}
       sourceCodeUrl="https://github.com/sethigeet/Ctrl-Alt-Anywhere"
     >
-      A <b>desktop application</b> that allows you to control your computers from
-      a single place.
-      <ul class="key-points-list ml-6 mt-2">
-        <li><b>Turn on and shut down</b> your computers</li>
-        <li><b>Remote </b>into your computers</li>
-        <li>
-          Store passwords for all your computers in a single <b
-            >encrypted store</b
-          >
-        </li>
+      A <span class="text-vellum">desktop application</span> that lets you
+      control your computers from a single place.
+      <ul class="key-points-list mt-4">
+        <li><span class="text-vellum">Turn on</span> and <span class="text-vellum">shut down</span> your machines.</li>
+        <li><span class="text-vellum">Remote</span> into your machines from one dashboard.</li>
+        <li>Store passwords for every machine in a single <span class="text-vellum">encrypted store</span>.</li>
       </ul>
     </ProjectItem>
   </section>

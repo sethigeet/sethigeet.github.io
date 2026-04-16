@@ -4,34 +4,71 @@ import { Image } from "astro:assets";
 import githubIcon from "@assets/icons/github.svg";
 import twitterIcon from "@assets/icons/twitter.svg";
 import linkedinIcon from "@assets/icons/linkedin.svg";
+
+const year = new Date().getFullYear();
 ---
 
-<footer
-  class="mx-auto mt-auto flex w-full justify-between px-2 py-6 text-slate-400"
->
-  <p class="font-mono">
-    Copyright &copy; {new Date().getFullYear()} Geet Sethi
-  </p>
-  <ul class="inline-flex items-center gap-3">
-    <!-- GitHub -->
-    <li class="h-5 w-5">
-      <a href="https://github.com/sethigeet" target="_blank">
-        <Image src={githubIcon} alt="GitHub icon" class="invert" />
-      </a>
-    </li>
+<footer class="relative z-20 mx-auto mt-24 w-full pb-8">
+  <div class="rule"></div>
 
-    <!-- X (Twitter) -->
-    <li class="h-5 w-5">
-      <a href="https://twitter.com/_geet_sethi_" target="_blank">
-        <Image src={twitterIcon} alt="X (Twitter) icon" class="invert" />
-      </a>
-    </li>
+  <div
+    class="mt-6 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center"
+  >
+    <p class="font-mono text-[0.7rem] uppercase tracking-widest text-ash">
+      &copy; {year} &nbsp;·&nbsp; Geet Sethi
+    </p>
 
-    <!-- LinkedIn -->
-    <li class="h-5 w-5">
-      <a href="https://www.linkedin.com/in/sethigeet/" target="_blank">
-        <Image src={linkedinIcon} alt="LinkedIn icon" class="invert" />
-      </a>
-    </li>
-  </ul>
+    <ul class="flex items-center gap-5">
+      <li>
+        <a
+          href="https://github.com/sethigeet"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 text-bone transition-colors hover:text-vellum"
+        >
+          <Image
+            src={githubIcon}
+            alt=""
+            class="h-4 w-4 opacity-80 invert transition-opacity group-hover:opacity-100"
+          />
+          <span class="font-mono text-xs uppercase tracking-widest">GitHub</span
+          >
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://twitter.com/_geet_sethi_"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 text-bone transition-colors hover:text-vellum"
+        >
+          <Image
+            src={twitterIcon}
+            alt=""
+            class="h-4 w-4 opacity-80 invert transition-opacity group-hover:opacity-100"
+          />
+          <span class="font-mono text-xs uppercase tracking-widest"
+            >Twitter</span
+          >
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/sethigeet/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 text-bone transition-colors hover:text-vellum"
+        >
+          <Image
+            src={linkedinIcon}
+            alt=""
+            class="h-4 w-4 opacity-80 invert transition-opacity group-hover:opacity-100"
+          />
+          <span class="font-mono text-xs uppercase tracking-widest"
+            >LinkedIn</span
+          >
+        </a>
+      </li>
+    </ul>
+  </div>
 </footer>

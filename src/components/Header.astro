@@ -1,97 +1,135 @@
 ---
-import { Image } from "astro:assets";
-
-import hamburgerIcon from "@assets/icons/hamburger.svg";
-import xMarkIcon from "@assets/icons/x-mark.svg";
-import logo from "@assets/logo.png";
-
 const pathname = new URL(Astro.request.url).pathname;
 const currPath = pathname.replace(/\/$/, "");
+
+const navItems = [
+  { text: "Index", link: "/", no: "00" },
+  { text: "About", link: "/about", no: "01" },
+  { text: "Projects", link: "/projects", no: "02" },
+  { text: "Journal", link: "/blogs", no: "03" },
+  { text: "Contact", link: "/contact", no: "04" },
+];
 ---
 
-<header class="mx-auto flex w-full items-center justify-between px-2 py-6">
-  <a href="/" class="flex items-center">
-    <Image
-      src={logo}
-      alt="logo"
-      width={40}
-      height={40}
-      class="h-10 w-10 rounded-full"
-    />
-    <span class="ml-4 text-2xl font-semibold">Geet Sethi</span>
-  </a>
-
-  <nav class="z-20">
-    <ul
-      id="menu"
-      class="hidden items-center gap-5 text-lg font-medium md:inline-flex"
+<header class="relative z-30 mx-auto w-full pt-6 md:pt-10">
+  <!-- Nameplate -->
+  <div class="flex items-end justify-between gap-4">
+    <a
+      href="/"
+      class="font-display text-[2.4rem] leading-none tracking-masthead text-vellum sm:text-[3.25rem] md:text-[4.1rem]"
+      style="font-variation-settings: 'opsz' 144, 'SOFT' 35, 'wght' 440;"
     >
+      <span class="italic">Geet</span> Sethi<span class="text-ember">.</span>
+    </a>
+
+    <button
+      id="menu-open-btn"
+      class="inline-flex flex-col items-end gap-1.5 p-2 md:hidden"
+      aria-label="Open menu"
+    >
+      <span class="h-px w-7 bg-vellum"></span>
+      <span class="h-px w-5 bg-vellum"></span>
+      <span class="h-px w-7 bg-vellum"></span>
+    </button>
+
+    <span
+      class="hidden font-mono text-[0.7rem] uppercase tracking-widest text-bone/70 md:inline"
+    >
+      Engineer &amp; <span class="italic text-ember">Journalist of Code</span>
+    </span>
+  </div>
+
+  <div class="mt-6 rule"></div>
+
+  <!-- Desktop nav -->
+  <nav class="mt-4 hidden items-center justify-between md:flex">
+    <span class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
+      Contents
+    </span>
+    <ul class="flex items-center gap-8">
       {
-        [
-          { text: "Home", link: "/" },
-          { text: "About", link: "/about" },
-          { text: "Projects", link: "/projects" },
-          { text: "Blog", link: "/blogs" },
-          { text: "Contact", link: "/contact" },
-        ].map((item) => (
-          <li class="menu-link transition-all duration-200 hover:text-primary">
-            <a
-              href={item.link}
-              class:list={[
-                { "active-link": item.link.replace(/\/$/, "") === currPath },
-              ]}
-            >
-              {item.text}
-            </a>
-          </li>
-        ))
+        navItems.map((item) => {
+          const isActive = item.link.replace(/\/$/, "") === currPath;
+          return (
+            <li class="flex items-baseline gap-2">
+              <span class="font-mono text-[0.62rem] tracking-widest text-ash">
+                {item.no}
+              </span>
+              <a
+                href={item.link}
+                class:list={["nav-link", { active: isActive }]}
+              >
+                {item.text}
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
-    <button id="menu-open-btn" class="rounded-lg hover:bg-primary/10 md:hidden">
-      <Image
-        src={hamburgerIcon}
-        alt="menu open icon"
-        class="invert"
-        width={40}
-        height={40}
-      />
-    </button>
-    <button
-      id="menu-close-btn"
-      class="hidden rounded-lg hover:bg-primary/10 md:hidden"
+    <a
+      href="/contact"
+      class="group inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-widest text-vellum"
     >
-      <Image
-        src={xMarkIcon}
-        alt="menu close icon"
-        class="invert"
-        width={40}
-        height={40}
-      />
-    </button>
+      <span
+        class="inline-block h-1.5 w-1.5 rounded-full bg-ember animate-flicker"
+      ></span>
+      Available for work
+      <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+    </a>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-40 hidden flex-col bg-ink/95 p-6 backdrop-blur-sm"
+  >
+    <div class="flex items-center justify-between">
+      <span class="font-mono text-[0.68rem] uppercase tracking-widest text-bone/70">
+        Menu
+      </span>
+      <button
+        id="menu-close-btn"
+        class="p-2 font-mono text-sm text-vellum"
+        aria-label="Close menu"
+      >
+        ✕
+      </button>
+    </div>
+    <ul class="mt-16 flex flex-1 flex-col gap-7">
+      {
+        navItems.map((item) => {
+          const isActive = item.link.replace(/\/$/, "") === currPath;
+          return (
+            <li class="flex items-baseline gap-4 border-b border-rule/80 pb-3">
+              <span class="font-mono text-[0.7rem] tracking-widest text-ash">
+                §{item.no}
+              </span>
+              <a
+                href={item.link}
+                class:list={[
+                  "font-display text-4xl tracking-masthead",
+                  isActive ? "text-ember italic" : "text-vellum",
+                ]}
+              >
+                {item.text}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
 </header>
 
 <script is:inline>
-  const menu = document.querySelector("#menu");
-  const menuOpenButton = document.querySelector("#menu-open-btn");
-  const menuCloseButton = document.querySelector("#menu-close-btn");
-
-  const toggleMenu = () => {
-    [
-      "absolute",
-      "flex",
-      "flex-col",
-      "inset-0",
-      "h-screen",
-      "w-screen",
-      "bg-slate-900",
-      "bg-opacity-90",
-      "hidden",
-      "pt-24",
-    ].forEach((cls) => menu.classList.toggle(cls));
-    menuOpenButton.classList.toggle("hidden");
-    menuCloseButton.classList.toggle("hidden");
+  const openBtn = document.getElementById("menu-open-btn");
+  const closeBtn = document.getElementById("menu-close-btn");
+  const menu = document.getElementById("mobile-menu");
+  const toggle = () => {
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("flex");
+    document.body.classList.toggle("overflow-hidden");
   };
-  menuOpenButton.addEventListener("click", toggleMenu);
-  menuCloseButton.addEventListener("click", toggleMenu);
+  openBtn?.addEventListener("click", toggle);
+  closeBtn?.addEventListener("click", toggle);
 </script>

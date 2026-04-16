@@ -10,30 +10,38 @@ interface Props {
 
 const { title, description } = Astro.props;
 
+const actualTitle = (title ? `${title} - ` : "") + "Geet Sethi";
+
 import "../global.css";
 ---
 
 <!doctype html>
 <html lang="en">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content={description} />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4BCAEA" />
-  <meta name="msapplication-TileColor" content="#4BCAEA" />
-  <meta name="theme-color" content="#4BCAEA" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4BCAEA" />
+    <meta name="msapplication-TileColor" content="#0B0F12" />
+    <meta name="theme-color" content="#0B0F12" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <title>{title && `${title} | `} Geet Sethi</title>
+    <title>{actualTitle}</title>
 
-  <Tooltips interactive={false} />
+    <Tooltips interactive={false} />
+  </head>
   <body>
-    <div class="mx-auto flex min-h-screen max-w-7xl flex-col p-2 md:p-4">
+    <div
+      class="relative mx-auto flex min-h-screen max-w-[1280px] flex-col px-5 md:px-10"
+    >
       <Header />
 
-      <main class="mx-auto w-full flex-1">
+      <main class="relative z-10 mx-auto w-full flex-1 pt-10 md:pt-16">
         <slot />
       </main>
 

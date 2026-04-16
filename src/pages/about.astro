@@ -3,47 +3,160 @@ import { EducationItem, TechLogo } from "@components/index.astro";
 import { LOGOS } from "@components/TechLogo.astro";
 import { MainLayout } from "@layouts/index.astro";
 import IITBLogo from "@assets/icons/iitb-logo.svg";
+
+const doubled = [...LOGOS, ...LOGOS];
 ---
 
 <MainLayout
   title="About"
   description="My name is Geet Sethi. I'm currently a student at the Indian Institute of Technology Bombay. I'm passionate about solving real world problems."
 >
+  <!-- Masthead row -->
   <section>
-    <h1 class="text-4xl font-bold">Welcome!</h1>
-    <p class="mt-4 text-xl font-semibold text-slate-200">
-      I'm <b class="font-semibold text-white">Geet Sethi</b>. I'm currently a
-      student at the Indian Institute of Technology Bombay.
-    </p>
-    <div class="mt-6 text-slate-300">
-      <p class="mt-2 text-lg">
-        My expertise is in both frontend as well as backend development. I also
-        have a some experience in low level systems programming.
-      </p>
-      <p class="mt-2 text-lg">
-        I have a lot of experience with technologies such as:
-        <b class="font-medium">
-          JavaScript/TypeScript, Node.js, React.js, Next.js, Express,
-          TailwindCSS, Python, Rust, C++, REST/GraphQL, SQL/NoSQL, and many
-          more!
-        </b>
-      </p>
-    </div>
-  </section>
-
-  <section
-    class="group relative mt-14 flex select-none gap-6 overflow-x-hidden"
-  >
-    <div
-      class="flex flex-shrink-0 animate-marquee gap-6 group-hover:[animation-play-state:paused]"
+    <div class="section-tag">§ 01 / About the author</div>
+    <h1
+      class="mt-6 max-w-4xl font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
+      style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
     >
-      {LOGOS.map((logo) => <TechLogo name={logo.name} />)}
-    </div>
+      Frontend, backend, and everything that
+      <span
+        class="italic text-ember"
+        style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;"
+      >
+        hums
+      </span>
+      between.
+    </h1>
   </section>
 
-  <section class="mt-6">
-    <h2 class="text-3xl font-semibold">Education</h2>
-    <div class="mt-6">
+  <div class="rule mt-14"></div>
+
+  <!-- Editorial body -->
+  <section class="mt-14 grid grid-cols-1 gap-12 md:grid-cols-12">
+    <div class="md:col-span-7">
+      <p
+        class="dropcap font-display text-xl leading-[1.55] text-vellum"
+        style="font-variation-settings:'opsz' 72,'SOFT' 20,'wght' 380;"
+      >
+        My name is Geet Sethi. I am a sophomore at the Indian Institute of
+        Technology Bombay — a student, an engineer, and a fairly obsessive
+        tinkerer. My expertise spans the full stack, from the rendering of a
+        pixel to the scheduling of a thread, and I spend most of my time where
+        frontends, backends, and low-level systems meet.
+      </p>
+
+      <p class="mt-6 text-lg leading-relaxed text-bone">
+        Lately the work has been split between two worlds: shipping
+        <em class="not-italic text-vellum">agentic LLM systems</em> with the AI Community
+        at IITB, and writing software for a
+        <em class="not-italic text-vellum">driverless race car</em> with the IITB
+        Racing Driverless team. Both feel like honest engineering — small, stubborn
+        problems that don't care about hype cycles.
+      </p>
+
+      <p class="mt-6 text-lg leading-relaxed text-bone">
+        When I'm not doing that, I'm writing in the
+        <a href="/blogs" class="edit-link text-ember">journal</a>, breaking
+        weekend prototypes, or reading papers that I will probably not finish.
+      </p>
+    </div>
+
+    <aside class="md:col-span-5 md:pl-6">
+      <div class="border border-rule p-6">
+        <p
+          class="font-mono text-[0.68rem] uppercase tracking-widest text-ember"
+        >
+          In conversation
+        </p>
+        <blockquote
+          class="mt-4 font-display text-2xl italic leading-snug tracking-masthead text-vellum"
+          style="font-variation-settings:'opsz' 144,'SOFT' 80,'wght' 380;"
+        >
+          “I don't chase a stack. I chase the thing the stack is for.”
+        </blockquote>
+        <p
+          class="mt-4 font-mono text-[0.68rem] uppercase tracking-widest text-ash"
+        >
+          — the author, on being asked if he is a frontend person
+        </p>
+      </div>
+
+      <div class="mt-6 border border-rule p-6">
+        <p
+          class="font-mono text-[0.68rem] uppercase tracking-widest text-ember"
+        >
+          Currently reading
+        </p>
+        <ul class="mt-4 space-y-2 text-sm text-bone">
+          <li>
+            <span class="text-vellum">SimVP</span> — a simpler path to video prediction
+          </li>
+          <li>
+            <span class="text-vellum"
+              >Designing Data-Intensive Applications</span
+            >
+            — Kleppmann
+          </li>
+          <li>
+            <span class="text-vellum">The Rust Performance Book</span>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Stack marquee -->
+  <section class="mt-20">
+    <div class="flex items-center justify-between">
+      <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
+        § Technologies
+      </p>
+      <p class="font-mono text-[0.68rem] uppercase tracking-widest text-bone">
+        Tools of the trade
+      </p>
+    </div>
+    <div class="rule mt-4"></div>
+
+    <div
+      class="group relative mt-8 overflow-hidden py-2"
+      style="mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);"
+    >
+      <div
+        class="marquee-track animate-marquee gap-10 group-hover:[animation-play-state:paused]"
+      >
+        {
+          doubled.map((logo) => (
+            <span class="flex items-center gap-3 whitespace-nowrap text-bone">
+              <TechLogo name={logo.name} size={36} />
+              <span class="font-mono text-[0.72rem] uppercase tracking-widest">
+                {logo.name}
+              </span>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+    <div class="rule mt-8"></div>
+  </section>
+
+  <!-- Education -->
+  <section class="mt-24">
+    <div class="flex items-baseline justify-between gap-4">
+      <div class="section-tag">§ 02 / Education</div>
+      <p
+        class="hidden font-mono text-[0.68rem] uppercase tracking-widest text-ash sm:block"
+      >
+        Formal record
+      </p>
+    </div>
+    <h2
+      class="mt-4 font-display text-4xl tracking-masthead text-vellum md:text-5xl"
+      style="font-variation-settings:'opsz' 144,'SOFT' 28,'wght' 440;"
+    >
+      A <span class="italic">formal</span> record.
+    </h2>
+
+    <div class="mt-10">
       <EducationItem
         logo={IITBLogo}
         college="Indian Institute of Technology Bombay"
@@ -53,31 +166,37 @@ import IITBLogo from "@assets/icons/iitb-logo.svg";
       >
         <div class="mt-2">
           <h4
-            class="inline border-b-2 border-b-primary text-sm font-bold text-primary"
+            class="inline border-b border-b-ember pb-0.5 font-mono text-[0.68rem] uppercase tracking-widest text-ember"
           >
             Key Roles
           </h4>
-          <ul class="key-points-list ml-4 text-slate-300">
-            <li>Junior Engineer, <b>AI Community IIT Bombay</b></li>
-            <li>Junior Engineer, <b>IIT Bombay Racing Team Driverless</b></li>
+          <ul class="key-points-list mt-2">
+            <li>
+              Junior Engineer, <span class="text-vellum"
+                >AI Community IIT Bombay</span>
+            </li>
+            <li>
+              Junior Engineer, <span class="text-vellum"
+                >IIT Bombay Racing Team Driverless</span>
+            </li>
           </ul>
         </div>
 
-        <div class="mt-2">
+        <div class="mt-4">
           <h4
-            class="inline border-b-2 border-b-primary text-sm font-bold text-primary"
+            class="inline border-b border-b-ember pb-0.5 font-mono text-[0.68rem] uppercase tracking-widest text-ember"
           >
             Key Projects
           </h4>
-          <ul class="key-points-list ml-4 text-slate-300">
+          <ul class="key-points-list mt-2">
             <li>
-              Built <b>InstiGPT</b> - a chatbot for IITB students in collaboration
-              with AI Community IIT Bombay
+              Built <span class="text-vellum">InstiGPT</span> — a chatbot for IITB
+              students, in collaboration with the AI Community.
             </li>
             <li>
-              Working with a team of 20+ students to build a <b
-                >driverless car</b
-              > for IIT Bombay Racing Team
+              Working with 20+ students to build a
+              <span class="text-vellum">driverless car</span> for IIT Bombay Racing
+              Team.
             </li>
           </ul>
         </div>

@@ -18,31 +18,57 @@ const allPosts = Object.values(
   import.meta.glob<MarkdownInstance<Frontmatter>>("./blogs/*.{md,mdx}", {
     eager: true,
   }),
+).sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishedAt).getTime() -
+    new Date(a.frontmatter.publishedAt).getTime(),
 );
 ---
 
-<MainLayout title="Blogs">
-  <section class="mx-4">
-    <h1 class="text-4xl font-bold">My Blogs</h1>
-    <p class="mt-4 text-xl text-slate-200">
-      Welcome to my blog, where I share insights from my coding journey, lessons
-      learned, and thoughts on the ever-changing world of tech. Whether you're a
-      developer or just curious about software, I hope you'll find something
-      interesting here.
+<MainLayout
+  title="Journal"
+  description="The journal of Geet Sethi — notes on engineering, research, and the occasional tangent."
+>
+  <!-- Masthead -->
+  <section>
+    <div class="section-tag">§ 03 / The Journal</div>
+    <h1
+      class="font-display mt-6 max-w-4xl text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
+      style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
+    >
+      Notes from the
+      <span class="italic text-ember" style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;">
+        margins
+      </span>
+      of an engineering education.
+    </h1>
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-bone">
+      Occasional writing on papers, systems, and the
+      <em class="not-italic text-vellum">strangely stubborn</em> problems
+      I find myself stuck on. Updated whenever I finish thinking.
     </p>
+  </section>
 
-    <section class="mt-16 flex flex-col gap-16">
+  <section class="mt-20">
+    <div class="flex items-baseline justify-between">
+      <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
+        All issues &nbsp;·&nbsp; newest first
+      </p>
+      <p class="hidden font-mono text-[0.68rem] uppercase tracking-widest text-bone sm:block">
+        {allPosts.length} {allPosts.length === 1 ? "entry" : "entries"}
+      </p>
+    </div>
+
+    <div class="mt-6">
       {
-        allPosts
-          .sort((a, b) => {
-            // Sort newest posts first
-            return (
-              new Date(b.frontmatter.publishedAt).getTime() -
-              new Date(a.frontmatter.publishedAt).getTime()
-            );
-          })
-          .map((post) => <BlogItem post={post} />)
+        allPosts.map((post, i) => (
+          <BlogItem
+            post={post}
+            index={(allPosts.length - i).toString().padStart(2, "0")}
+          />
+        ))
       }
-    </section>
+      <div class="border-t border-rule"></div>
+    </div>
   </section>
 </MainLayout>

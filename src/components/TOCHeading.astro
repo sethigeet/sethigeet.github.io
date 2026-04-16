@@ -2,17 +2,17 @@
 const { heading } = Astro.props;
 ---
 
-<li class="toc-item mb-1">
+<li class="toc-item">
   <a
     href={"#" + heading.slug}
     data-slug={heading.slug}
-    class="toc-link text-slate-500 no-underline transition-colors duration-200 ease-in-out hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+    class="toc-link block text-sm text-bone no-underline transition-colors duration-200 ease-in-out hover:text-vellum"
   >
     {heading.text}
   </a>
   {
     heading.subheadings.length > 0 && (
-      <ul class="subheadings mt-1 list-none pl-4">
+      <ul class="subheadings mt-1.5 list-none space-y-1.5 border-l border-rule/80 pl-3">
         {heading.subheadings.map((subheading: any) => (
           <Astro.self heading={subheading} />
         ))}
