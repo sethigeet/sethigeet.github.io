@@ -35,11 +35,13 @@ const navItems = [
     <span
       class="hidden font-mono text-[0.7rem] uppercase tracking-widest text-bone/70 md:inline"
     >
-      Engineer &amp; <span class="italic text-ember">Journalist of Code</span>
+      Systems, ML, and <span class="italic text-ember"
+        >performance engineering</span
+      >
     </span>
   </div>
 
-  <div class="mt-6 rule"></div>
+  <div class="rule mt-6"></div>
 
   <!-- Desktop nav -->
   <nav class="mt-4 hidden items-center justify-between md:flex">
@@ -71,10 +73,12 @@ const navItems = [
       class="group inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-widest text-vellum"
     >
       <span
-        class="inline-block h-1.5 w-1.5 rounded-full bg-ember animate-flicker"
+        class="inline-block h-1.5 w-1.5 animate-flicker rounded-full bg-ember"
       ></span>
-      Available for work
-      <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+      Reach out
+      <span class="transition-transform duration-300 group-hover:translate-x-1"
+        >→</span
+      >
     </a>
   </nav>
 
@@ -84,7 +88,9 @@ const navItems = [
     class="fixed inset-0 z-40 hidden flex-col bg-ink/95 p-6 backdrop-blur-sm"
   >
     <div class="flex items-center justify-between">
-      <span class="font-mono text-[0.68rem] uppercase tracking-widest text-bone/70">
+      <span
+        class="font-mono text-[0.68rem] uppercase tracking-widest text-bone/70"
+      >
         Menu
       </span>
       <button
@@ -108,7 +114,7 @@ const navItems = [
                 href={item.link}
                 class:list={[
                   "font-display text-4xl tracking-masthead",
-                  isActive ? "text-ember italic" : "text-vellum",
+                  isActive ? "italic text-ember" : "text-vellum",
                 ]}
               >
                 {item.text}

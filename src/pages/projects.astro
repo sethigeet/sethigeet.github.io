@@ -1,6 +1,6 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import { ProjectItem } from "@components/index.astro";
+import { ProjectItem, ResumeProjectItem } from "@components/index.astro";
 
 import CtrlAltAnywhereShowcase from "@assets/project-showcases/ctrl-alt-anywhere.png";
 import InstiGPTShowcase from "@assets/project-showcases/instigpt.png";
@@ -12,24 +12,107 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
   <section>
     <div class="section-tag">§ 02 / Selected works</div>
     <h1
-      class="font-display mt-6 max-w-4xl text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
+      class="mt-6 max-w-4xl font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
       style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
     >
       Things I have
-      <span class="italic text-ember" style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;">
+      <span
+        class="italic text-ember"
+        style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;"
+      >
         built
-      </span>,
-      shipped, and learned from.
+      </span>, shipped, and learned from.
     </h1>
     <p class="mt-6 max-w-xl text-lg leading-relaxed text-bone">
-      A short catalog of projects — weekend experiments, team engineering,
-      and the occasional thing that found real users.
+      A short catalog of projects — weekend experiments, team engineering, and
+      the occasional thing that found real users.
     </p>
   </section>
 
   <section class="mt-20">
-    <ProjectItem
+    <ResumeProjectItem
       index="01"
+      name="PolyBench"
+      artifactLabel="Real-time Polymarket trading simulator"
+      skills={["C++", "Python", "Linux", "Docker", "Git"]}
+    >
+      A high-performance algorithmic trading framework for testing strategies on
+      live Polymarket markets.
+      <ul class="key-points-list mt-4">
+        <li>
+          Built a <span class="text-vellum">low-latency C++20 engine</span> that processes
+          live WebSocket feeds using lock-free SPSC ring buffers and stack-allocated
+          containers on the critical path.
+        </li>
+        <li>
+          Engineered a <span class="text-vellum"
+            >C++ / Python hybrid runtime</span
+          >
+          with pybind11 embedding, enabling Python strategies to execute inside the
+          C++ event loop with sub-millisecond callback overhead.
+        </li>
+        <li>
+          Used PGO builds and heaptrack-driven profiling to remove per-message
+          allocations in the hot path and drive p99 message-processing latency
+          below one microsecond.
+        </li>
+      </ul>
+    </ResumeProjectItem>
+
+    <ResumeProjectItem
+      index="02"
+      name="SPEC"
+      artifactLabel="Speculative pipeline for continuous decoding"
+      skills={["Rust", "Python", "Transformers", "Docker", "Linux"]}
+    >
+      A high-performance inference engine optimized around asynchronous
+      verification for continuous decoding.
+      <ul class="key-points-list mt-4">
+        <li>
+          Architected an asynchronous
+          <span class="text-vellum">speculative decoding engine</span> that decouples
+          draft token generation from target-model verification.
+        </li>
+        <li>
+          Built a lock-free concurrent pipeline in Rust to overlap draft and
+          target forward passes, increasing token throughput by roughly
+          <span class="text-vellum">50%</span>.
+        </li>
+        <li>
+          Kept the system deterministic while improving GPU occupancy and
+          reducing memory-bandwidth bottlenecks during decoding.
+        </li>
+      </ul>
+    </ResumeProjectItem>
+
+    <ResumeProjectItem
+      index="03"
+      name="NexusAlloc"
+      artifactLabel="High-performance lock-free memory allocator"
+      skills={["C++", "Linux", "Git"]}
+    >
+      An alternate memory allocator tuned for high-frequency allocation
+      patterns.
+      <ul class="key-points-list mt-4">
+        <li>
+          Achieved <span class="text-vellum">2.1x average speedup</span> over glibc
+          malloc across 40+ benchmarks designed around real-world allocation patterns.
+        </li>
+        <li>
+          Engineered per-thread arenas with
+          <span class="text-vellum">slab-based segregated free lists</span> for O(1)
+          allocation and deallocation.
+        </li>
+        <li>
+          Implemented a lock-free global page stack using CAS with tagged
+          pointers and applied hugepages, compile-time dispatch, and hot-path
+          inlining to keep allocator overhead low.
+        </li>
+      </ul>
+    </ResumeProjectItem>
+
+    <ProjectItem
+      index="04"
       name="FinSight"
       skills={[
         "Python",
@@ -49,13 +132,13 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
     >
       A full-stack application powered by a
       <span class="text-vellum">state-of-the-art agentic RAG</span>
-      (Retrieval Augmented Generation) pipeline, which answers the most
-      difficult multi-hop quantitative &amp; qualitative queries from
-      information-heavy financial documents such as SEC 10-K reports.
+      (Retrieval Augmented Generation) pipeline, which answers the most difficult
+      multi-hop quantitative &amp; qualitative queries from information-heavy financial
+      documents such as SEC 10-K reports.
     </ProjectItem>
 
     <ProjectItem
-      index="02"
+      index="05"
       name="Related Party Transactions"
       skills={[
         "Rust",
@@ -71,13 +154,13 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
       coverImage={InstiGPTShowcase}
     >
       A full-stack application made for
-      <span class="text-vellum">HDFC Bank</span> which lets them manage the
-      transactions of their related parties by collating data from multiple
-      sources and surfacing important trends in a single dashboard.
+      <span class="text-vellum">HDFC Bank</span> which lets them manage the transactions
+      of their related parties by collating data from multiple sources and surfacing
+      important trends in a single dashboard.
     </ProjectItem>
 
     <ProjectItem
-      index="03"
+      index="06"
       name="InstiGPT"
       skills={[
         "LangChain",
@@ -95,19 +178,27 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
       coverImage={InstiGPTShowcase}
       sourceCodeUrl="https://github.com/AI-Community-IIT-Bombay/InstiGPT"
     >
-      A <span class="text-vellum">ChatGPT equivalent for IIT Bombay</span> that
-      answers anything related to the institute — academics, hostels, fests,
-      whatever you throw at it.
+      A <span class="text-vellum">ChatGPT equivalent for IIT Bombay</span> that answers
+      anything related to the institute — academics, hostels, fests, whatever you
+      throw at it.
       <ul class="key-points-list mt-4">
-        <li>Offered to <span class="text-vellum">over 14,000 students</span> at IITB.</li>
-        <li><span class="text-vellum">Over 12,000 questions</span> asked within three months.</li>
-        <li>Answers using <span class="text-vellum">live information</span> from internal systems and the open web.</li>
+        <li>
+          Offered to <span class="text-vellum">over 14,000 students</span> at IITB.
+        </li>
+        <li>
+          <span class="text-vellum">Over 12,000 questions</span> asked within three
+          months.
+        </li>
+        <li>
+          Answers using <span class="text-vellum">live information</span> from internal
+          systems and the open web.
+        </li>
         <li>Quick response times — typically 6–7 seconds.</li>
       </ul>
     </ProjectItem>
 
     <ProjectItem
-      index="04"
+      index="07"
       name="Ctrl-Alt-Anywhere"
       skills={[
         "Rust",
@@ -120,12 +211,22 @@ import FinSightShowcase from "@assets/project-showcases/finsight.png";
       coverImage={CtrlAltAnywhereShowcase}
       sourceCodeUrl="https://github.com/sethigeet/Ctrl-Alt-Anywhere"
     >
-      A <span class="text-vellum">desktop application</span> that lets you
-      control your computers from a single place.
+      A <span class="text-vellum">desktop application</span> that lets you control
+      your computers from a single place.
       <ul class="key-points-list mt-4">
-        <li><span class="text-vellum">Turn on</span> and <span class="text-vellum">shut down</span> your machines.</li>
-        <li><span class="text-vellum">Remote</span> into your machines from one dashboard.</li>
-        <li>Store passwords for every machine in a single <span class="text-vellum">encrypted store</span>.</li>
+        <li>
+          <span class="text-vellum">Turn on</span> and <span class="text-vellum"
+            >shut down</span
+          > your machines.
+        </li>
+        <li>
+          <span class="text-vellum">Remote</span> into your machines from one dashboard.
+        </li>
+        <li>
+          Store passwords for every machine in a single <span
+            class="text-vellum">encrypted store</span
+          >.
+        </li>
       </ul>
     </ProjectItem>
   </section>

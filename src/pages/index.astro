@@ -2,18 +2,18 @@
 import { MainLayout } from "@layouts/index.astro";
 
 const focuses = [
-  "Building InstiGPT",
-  "Driverless @ IITB Racing",
-  "Agentic RAG pipelines",
-  "Low-level systems in Rust",
-  "Video-prediction research",
-  "Shipping weekend projects",
+  "IIT Bombay",
+  "Concurrent execution",
+  "Low-latency systems",
+  "Lock-free systems",
+  "High Perf Computing",
+  "GPUs",
+  "Systems in ML",
 ];
 const tickerFocuses = [...focuses, ...focuses];
 ---
 
 <MainLayout>
-  <!-- ambient flowing line (SVG) -->
   <svg
     aria-hidden="true"
     class="pointer-events-none absolute left-0 right-0 top-[22rem] -z-0 h-[280px] w-full opacity-[0.22]"
@@ -22,10 +22,10 @@ const tickerFocuses = [...focuses, ...focuses];
   >
     <defs>
       <linearGradient id="emberLine" x1="0" x2="1" y1="0" y2="0">
-        <stop offset="0" stop-color="#4BCAEA" stop-opacity="0" />
-        <stop offset="0.3" stop-color="#4BCAEA" stop-opacity="0.9" />
-        <stop offset="0.7" stop-color="#4BCAEA" stop-opacity="0.9" />
-        <stop offset="1" stop-color="#4BCAEA" stop-opacity="0" />
+        <stop offset="0" stop-color="#4BCAEA" stop-opacity="0"></stop>
+        <stop offset="0.3" stop-color="#4BCAEA" stop-opacity="0.9"></stop>
+        <stop offset="0.7" stop-color="#4BCAEA" stop-opacity="0.9"></stop>
+        <stop offset="1" stop-color="#4BCAEA" stop-opacity="0"></stop>
       </linearGradient>
     </defs>
     {
@@ -43,30 +43,32 @@ const tickerFocuses = [...focuses, ...focuses];
   </svg>
 
   <section class="relative grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-8">
-    <!-- Left column: statement -->
     <div class="md:col-span-8">
       <div class="section-tag animate-rise" style="animation-delay:80ms;">
         § 00 &nbsp;/&nbsp; The Index
       </div>
 
       <h1
-        class="font-display mt-7 text-[clamp(2.6rem,7.2vw,6rem)] font-[440] leading-[0.96] tracking-masthead text-vellum"
-        style="font-variation-settings: 'opsz' 144, 'SOFT' 40, 'wght' 460;"
+        class="mt-7 font-display text-[clamp(2.6rem,7.2vw,6rem)] font-[440] leading-[0.96] tracking-masthead text-vellum"
+        style="font-variation-settings:'opsz' 144,'SOFT' 40,'wght' 460;"
       >
         <span class="block animate-rise" style="animation-delay:160ms;">
-          Student engineer
+          B.Tech student
         </span>
         <span class="block animate-rise" style="animation-delay:260ms;">
-          from <span class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 90,'wght' 440;">Bombay</span>,
+          at <span
+            class="italic"
+            style="font-variation-settings:'opsz' 144,'SOFT' 90,'wght' 440;"
+            >IIT Bombay</span
+          >,
         </span>
         <span class="block animate-rise" style="animation-delay:360ms;">
-          building a
-          <span class="relative inline-block">
+          building <span class="relative inline-block">
             <span
               class="italic text-ember"
               style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;"
             >
-              better
+              fast systems
             </span>
             <svg
               aria-hidden="true"
@@ -85,25 +87,24 @@ const tickerFocuses = [...focuses, ...focuses];
                 style="animation: stroke-in 1400ms 900ms cubic-bezier(0.2,0.7,0.1,1) forwards;"
               ></path>
             </svg>
-          </span>
-          tomorrow.
+          </span>{" "}
+          that hold up under load.
         </span>
       </h1>
 
       <p
-        class="mt-10 max-w-xl text-lg leading-relaxed text-bone animate-rise"
+        class="mt-10 max-w-xl animate-rise text-lg leading-relaxed text-bone"
         style="animation-delay:480ms;"
       >
-        I write code at the seams where
-        <em class="not-italic text-vellum">systems</em>,
-        <em class="not-italic text-vellum">models</em>, and
-        <em class="not-italic text-vellum">people</em>
-        meet — occasionally useful software, occasionally a racing car that drives
-        itself.
+        I work across <em class="not-italic text-vellum">concurrency</em>,
+        <em class="not-italic text-vellum"> performance</em>, and
+        <em class="not-italic text-vellum"> ML infrastructure</em>: Python
+        execution systems, Rust pipelines, C++ trading engines, and the odd
+        benchmark that turns into a design constraint.
       </p>
 
       <div
-        class="mt-10 flex flex-wrap items-center gap-3 animate-rise"
+        class="mt-10 flex animate-rise flex-wrap items-center gap-3"
         style="animation-delay:600ms;"
       >
         <a
@@ -111,7 +112,9 @@ const tickerFocuses = [...focuses, ...focuses];
           class="group inline-flex items-center gap-3 rounded-none border border-ember/80 bg-ember px-5 py-3 font-mono text-[0.72rem] uppercase tracking-widest text-ink transition-colors hover:bg-ember/90"
         >
           See the work
-          <span class="transition-transform duration-300 group-hover:translate-x-1">
+          <span
+            class="transition-transform duration-300 group-hover:translate-x-1"
+          >
             ↗
           </span>
         </a>
@@ -120,43 +123,39 @@ const tickerFocuses = [...focuses, ...focuses];
           class="group inline-flex items-center gap-3 border border-rule px-5 py-3 font-mono text-[0.72rem] uppercase tracking-widest text-vellum transition-colors hover:border-vellum/60"
         >
           About me
-          <span class="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </a>
-        <a
-          href="/blogs"
-          class="group inline-flex items-center gap-2 px-2 py-3 font-mono text-[0.72rem] uppercase tracking-widest text-bone/80 transition-colors hover:text-vellum"
-        >
-          Journal
-          <span class="transition-transform duration-300 group-hover:translate-x-1">
+          <span
+            class="transition-transform duration-300 group-hover:translate-x-1"
+          >
             →
           </span>
         </a>
       </div>
     </div>
 
-    <!-- Right column: metadata card -->
     <aside
-      class="md:col-span-4 md:pl-6 md:border-l md:border-rule animate-rise-slow"
+      class="animate-rise-slow md:col-span-4 md:border-l md:border-rule md:pl-6"
       style="animation-delay:700ms;"
     >
       <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
         § Dispatch
       </p>
       <p class="mt-4 font-mono text-[0.78rem] leading-relaxed text-bone">
-        <span class="text-vellum">STATUS</span> — Junior at the
-        <em class="not-italic text-ember">Indian Institute of Technology Bombay</em>.
-        Currently engineering on <em class="not-italic text-vellum">driverless cars</em>
-        and <em class="not-italic text-vellum">agentic LLM systems</em>.
+        <span class="text-vellum">STATUS</span> — B.Tech in
+        <em class="not-italic text-ember"> Computer Science and Engineering</em> at
+        IIT Bombay with a <em class="not-italic text-vellum">9.74 / 10 CGPA</em> and
+        a minor in <em class="not-italic text-vellum"
+          >Machine Learning and Data Science</em
+        >.
       </p>
 
-      <div class="mt-8 rule"></div>
+      <div class="rule mt-8"></div>
 
-      <div class="mt-6 space-y-3 font-mono text-[0.72rem] uppercase tracking-widest">
+      <div
+        class="mt-6 space-y-3 font-mono text-[0.72rem] uppercase tracking-widest"
+      >
         <div class="flex items-baseline justify-between gap-6">
           <span class="text-ash">Role</span>
-          <span class="text-right text-vellum">Student · Engineer</span>
+          <span class="text-right text-vellum">Student · SWE</span>
         </div>
         <div class="flex items-baseline justify-between gap-6">
           <span class="text-ash">Base</span>
@@ -164,46 +163,43 @@ const tickerFocuses = [...focuses, ...focuses];
         </div>
         <div class="flex items-baseline justify-between gap-6">
           <span class="text-ash">Stack</span>
-          <span class="text-right text-vellum">Rust · C++ · PY · TS</span>
+          <span class="text-right text-vellum">Python · Rust · C++ · TS</span>
         </div>
         <div class="flex items-baseline justify-between gap-6">
-          <span class="text-ash">Interests</span>
-          <span class="text-right text-vellum italic text-ember">
-            ML · Systems · Cars
+          <span class="text-ash">Focus</span>
+          <span class="text-right italic text-vellum">
+            Systems · ML Infra · Performance
           </span>
         </div>
       </div>
 
-      <div class="mt-8 rule"></div>
-
-      <a
-        href="/contact"
-        class="edit-link mt-6 inline-block font-mono text-[0.72rem] uppercase tracking-widest text-ember"
-      >
-        Available for work →
-      </a>
+      <div class="rule mt-8"></div>
     </aside>
   </section>
 
-  <!-- Ticker row -->
   <section class="relative mt-24 overflow-hidden">
     <div class="rule"></div>
     <div
-      class="group flex select-none items-center gap-12 py-6 overflow-hidden"
+      class="group flex select-none items-center gap-12 overflow-hidden py-6"
     >
-      <div class="marquee-track animate-marquee-slow group-hover:[animation-play-state:paused]">
+      <div
+        class="marquee-track animate-marquee-slow group-hover:[animation-play-state:paused]"
+      >
         {
-          tickerFocuses.map((f, i) => (
+          tickerFocuses.map((focus, i) => (
             <span class="mx-8 inline-flex items-center gap-8 whitespace-nowrap font-display text-4xl text-vellum md:text-5xl">
               <span
                 class="inline-block h-2 w-2 rounded-full"
                 style="background: #4BCAEA;"
               />
               <span
-                class:list={[i % 3 === 0 ? "italic text-ember" : "", "tracking-masthead"]}
-                style="font-variation-settings: 'opsz' 144, 'SOFT' 60, 'wght' 420;"
+                class:list={[
+                  i % 3 === 0 ? "italic text-ember" : "",
+                  "tracking-masthead",
+                ]}
+                style="font-variation-settings:'opsz' 144,'SOFT' 60,'wght' 420;"
               >
-                {f}
+                {focus}
               </span>
             </span>
           ))
@@ -213,71 +209,73 @@ const tickerFocuses = [...focuses, ...focuses];
     <div class="rule"></div>
   </section>
 
-  <!-- Three-up highlights -->
   <section class="mt-20 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-14">
     <article class="group">
       <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ember">
-        § 01 — Research
+        § 01 — Experience
       </p>
       <h3
         class="mt-3 font-display text-3xl tracking-masthead text-vellum"
         style="font-variation-settings:'opsz' 144,'SOFT' 25,'wght' 440;"
       >
-        Video prediction, <span class="italic">simplified</span>.
+        Concurrent systems, <span class="italic">shipped</span>.
       </h3>
       <p class="mt-3 text-sm leading-relaxed text-bone">
-        A close read of <em>SimVP</em> — how plain CNNs and MSE can rival the
-        heaviest video-forecasting architectures.
-      </p>
-      <a
-        href="/blogs"
-        class="edit-link mt-4 inline-block font-mono text-[0.7rem] uppercase tracking-widest text-vellum"
-      >
-        Read in the journal →
-      </a>
-    </article>
-
-    <article class="group">
-      <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ember">
-        § 02 — Systems
-      </p>
-      <h3
-        class="mt-3 font-display text-3xl tracking-masthead text-vellum"
-        style="font-variation-settings:'opsz' 144,'SOFT' 25,'wght' 440;"
-      >
-        A chatbot for <span class="italic">14,000</span> students.
-      </h3>
-      <p class="mt-3 text-sm leading-relaxed text-bone">
-        InstiGPT — a retrieval-augmented assistant answering real questions
-        about life at IITB with live data and sub-7-second responses.
-      </p>
-      <a
-        href="/projects"
-        class="edit-link mt-4 inline-block font-mono text-[0.7rem] uppercase tracking-widest text-vellum"
-      >
-        See the project →
-      </a>
-    </article>
-
-    <article class="group">
-      <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ember">
-        § 03 — Motion
-      </p>
-      <h3
-        class="mt-3 font-display text-3xl tracking-masthead text-vellum"
-        style="font-variation-settings:'opsz' 144,'SOFT' 25,'wght' 440;"
-      >
-        Teaching a car to <span class="italic">drive itself</span>.
-      </h3>
-      <p class="mt-3 text-sm leading-relaxed text-bone">
-        Junior engineer on IITB Racing's driverless program — twenty students,
-        one autonomous formula car, one very steep curve.
+        At Jack and Jill, I built a Python task execution system with bounded
+        queues, backpressure, retries, timeouts, and structured failures for
+        long-running workloads.
       </p>
       <a
         href="/about"
         class="edit-link mt-4 inline-block font-mono text-[0.7rem] uppercase tracking-widest text-vellum"
       >
-        Read on →
+        Read the background →
+      </a>
+    </article>
+
+    <article class="group">
+      <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ember">
+        § 02 — Performance
+      </p>
+      <h3
+        class="mt-3 font-display text-3xl tracking-masthead text-vellum"
+        style="font-variation-settings:'opsz' 144,'SOFT' 25,'wght' 440;"
+      >
+        A parser with a <span class="italic">30x</span> speedup.
+      </h3>
+      <p class="mt-3 text-sm leading-relaxed text-bone">
+        At Kalpataru Computer Services, I engineered a Rust parser for
+        10GB-scale files using mmap, multithreaded chunking, and zero-copy
+        techniques.
+      </p>
+      <a
+        href="/about"
+        class="edit-link mt-4 inline-block font-mono text-[0.7rem] uppercase tracking-widest text-vellum"
+      >
+        See the experience →
+      </a>
+    </article>
+
+    <article class="group">
+      <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ember">
+        § 03 — Projects
+      </p>
+      <h3
+        class="mt-3 font-display text-3xl tracking-masthead text-vellum"
+        style="font-variation-settings:'opsz' 144,'SOFT' 25,'wght' 440;"
+      >
+        Trading, allocators, and <span class="italic">decoding</span>.
+      </h3>
+      <p class="mt-3 text-sm leading-relaxed text-bone">
+        Bench, NexusAlloc, and SPEC are the clearest expression of what I like
+        building: low-latency pipelines, memory primitives, and inference
+        systems.
+      </p>
+      <a
+        href="/projects"
+        class="edit-link mt-4 inline-block font-mono text-[0.7rem] uppercase tracking-widest text-vellum"
+      >
+        See the work →
       </a>
     </article>
   </section>

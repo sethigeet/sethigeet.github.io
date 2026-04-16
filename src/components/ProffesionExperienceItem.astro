@@ -1,0 +1,35 @@
+---
+interface Props {
+  company: string;
+  position: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+}
+const { company, position, startDate, endDate, location } = Astro.props;
+---
+
+<article class="border-l border-rule pl-6">
+  <div
+    class="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between"
+  >
+    <div>
+      <h3
+        class="font-display text-3xl tracking-masthead text-vellum"
+        style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 440;"
+      >
+        {company}
+      </h3>
+      <p
+        class="mt-1 font-mono text-[0.7rem] uppercase tracking-widest text-bone"
+      >
+        {position} · {location}
+      </p>
+    </div>
+    <p class="font-mono text-[0.7rem] uppercase tracking-widest text-ash">
+      {startDate} - {endDate}
+    </p>
+  </div>
+
+  <slot />
+</article>

@@ -1,5 +1,9 @@
 ---
-import { EducationItem, TechLogo } from "@components/index.astro";
+import {
+  EducationItem,
+  ProffesionExperienceItem,
+  TechLogo,
+} from "@components/index.astro";
 import { LOGOS } from "@components/TechLogo.astro";
 import { MainLayout } from "@layouts/index.astro";
 import IITBLogo from "@assets/icons/iitb-logo.svg";
@@ -9,55 +13,49 @@ const doubled = [...LOGOS, ...LOGOS];
 
 <MainLayout
   title="About"
-  description="My name is Geet Sethi. I'm currently a student at the Indian Institute of Technology Bombay. I'm passionate about solving real world problems."
+  description="Geet Sethi is a student at IIT Bombay focused on systems, performance, and ML infrastructure."
 >
-  <!-- Masthead row -->
   <section>
     <div class="section-tag">§ 01 / About the author</div>
     <h1
       class="mt-6 max-w-4xl font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
       style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
     >
-      Frontend, backend, and everything that
+      Fast software, careful systems, and everything that
       <span
         class="italic text-ember"
         style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;"
       >
-        hums
+        sits on the hot path
       </span>
-      between.
+      in between.
     </h1>
   </section>
 
   <div class="rule mt-14"></div>
 
-  <!-- Editorial body -->
   <section class="mt-14 grid grid-cols-1 gap-12 md:grid-cols-12">
     <div class="md:col-span-7">
       <p
         class="dropcap font-display text-xl leading-[1.55] text-vellum"
         style="font-variation-settings:'opsz' 72,'SOFT' 20,'wght' 380;"
       >
-        My name is Geet Sethi. I am a sophomore at the Indian Institute of
-        Technology Bombay — a student, an engineer, and a fairly obsessive
-        tinkerer. My expertise spans the full stack, from the rendering of a
-        pixel to the scheduling of a thread, and I spend most of my time where
-        frontends, backends, and low-level systems meet.
+        My name is Geet Sethi. I am pursuing a B.Tech at the Indian Institute of
+        Technology Bombay, and am also completing a minor in Machine Learning
+        and Data Science.
       </p>
 
       <p class="mt-6 text-lg leading-relaxed text-bone">
-        Lately the work has been split between two worlds: shipping
-        <em class="not-italic text-vellum">agentic LLM systems</em> with the AI Community
-        at IITB, and writing software for a
-        <em class="not-italic text-vellum">driverless race car</em> with the IITB
-        Racing Driverless team. Both feel like honest engineering — small, stubborn
-        problems that don't care about hype cycles.
+        Most of my work lives in performance-sensitive systems: concurrent task
+        execution in Python, memory-mapped parsing in Rust, low-latency trading
+        infrastructure in C++, and ML inference pipelines that need to stay fast
+        without losing determinism.
       </p>
 
       <p class="mt-6 text-lg leading-relaxed text-bone">
-        When I'm not doing that, I'm writing in the
-        <a href="/blogs" class="edit-link text-ember">journal</a>, breaking
-        weekend prototypes, or reading papers that I will probably not finish.
+        I care about bounded resource usage, predictable latency, and interfaces
+        that let high-level experimentation coexist with low-level runtime code.
+        That is the thread connecting the internships, projects, and coursework.
       </p>
     </div>
 
@@ -66,46 +64,44 @@ const doubled = [...LOGOS, ...LOGOS];
         <p
           class="font-mono text-[0.68rem] uppercase tracking-widest text-ember"
         >
-          In conversation
+          At a glance
         </p>
-        <blockquote
-          class="mt-4 font-display text-2xl italic leading-snug tracking-masthead text-vellum"
-          style="font-variation-settings:'opsz' 144,'SOFT' 80,'wght' 380;"
-        >
-          “I don't chase a stack. I chase the thing the stack is for.”
-        </blockquote>
-        <p
-          class="mt-4 font-mono text-[0.68rem] uppercase tracking-widest text-ash"
-        >
-          — the author, on being asked if he is a frontend person
-        </p>
+        <dl class="mt-4 space-y-4 text-sm text-bone">
+          <div class="flex items-baseline justify-between gap-6">
+            <dt class="font-mono uppercase tracking-widest text-ash">Degree</dt>
+            <dd class="text-right text-vellum">B.Tech, IIT Bombay</dd>
+          </div>
+          <div class="flex items-baseline justify-between gap-6">
+            <dt class="font-mono uppercase tracking-widest text-ash">Minor</dt>
+            <dd class="text-right text-vellum">ML &amp; Data Science</dd>
+          </div>
+          <div class="flex items-baseline justify-between gap-6">
+            <dt class="font-mono uppercase tracking-widest text-ash">Base</dt>
+            <dd class="text-right text-vellum">Earth</dd>
+          </div>
+        </dl>
       </div>
 
       <div class="mt-6 border border-rule p-6">
         <p
           class="font-mono text-[0.68rem] uppercase tracking-widest text-ember"
         >
-          Currently reading
+          Core tools
         </p>
         <ul class="mt-4 space-y-2 text-sm text-bone">
           <li>
-            <span class="text-vellum">SimVP</span> — a simpler path to video prediction
+            <span class="text-vellum">Languages</span> — Python, Rust, C/C++, CUDA,
+            Go, Bash, SQL, Lua, JavaScript/TypeScript
           </li>
           <li>
-            <span class="text-vellum"
-              >Designing Data-Intensive Applications</span
-            >
-            — Kleppmann
-          </li>
-          <li>
-            <span class="text-vellum">The Rust Performance Book</span>
+            <span class="text-vellum">Infrastructure</span> — Linux, Git, Docker,
+            perf, Valgrind, heaptrack, Postgres, Redis
           </li>
         </ul>
       </div>
     </aside>
   </section>
 
-  <!-- Stack marquee -->
   <section class="mt-20">
     <div class="flex items-center justify-between">
       <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
@@ -139,7 +135,6 @@ const doubled = [...LOGOS, ...LOGOS];
     <div class="rule mt-8"></div>
   </section>
 
-  <!-- Education -->
   <section class="mt-24">
     <div class="flex items-baseline justify-between gap-4">
       <div class="section-tag">§ 02 / Education</div>
@@ -161,7 +156,7 @@ const doubled = [...LOGOS, ...LOGOS];
         logo={IITBLogo}
         college="Indian Institute of Technology Bombay"
         startDate="July 2023"
-        endDate="April 2027"
+        endDate="May 2027"
         isCurrent
       >
         <div class="mt-2">
@@ -172,12 +167,24 @@ const doubled = [...LOGOS, ...LOGOS];
           </h4>
           <ul class="key-points-list mt-2">
             <li>
-              Junior Engineer, <span class="text-vellum"
-                >AI Community IIT Bombay</span>
+              Teaching Assistant, <span class="text-vellum">IIT Bombay</span> - Teaching
+              Assistant for the course <span class="text-vellum">CS101</span> where
+              I conducted lab sessions for a class of ~30 freshmen and mentored them
+              one-on-one providing academic guidance and support to help navigate
+              & succeed in the course.
             </li>
             <li>
               Junior Engineer, <span class="text-vellum"
-                >IIT Bombay Racing Team Driverless</span>
+                >AI Community IIT Bombay</span
+              > - Built <span class="text-vellum">InstiGPT</span>, a chatbot for
+              IITB students.
+            </li>
+            <li>
+              Junior Engineer, <span class="text-vellum"
+                >IIT Bombay Racing Team Driverless</span
+              > - Working with a team of 20+ students to build a <span
+                class="text-vellum">driverless car</span
+              >
             </li>
           </ul>
         </div>
@@ -186,21 +193,105 @@ const doubled = [...LOGOS, ...LOGOS];
           <h4
             class="inline border-b border-b-ember pb-0.5 font-mono text-[0.68rem] uppercase tracking-widest text-ember"
           >
-            Key Projects
+            Selected Achievements
           </h4>
           <ul class="key-points-list mt-2">
             <li>
-              Built <span class="text-vellum">InstiGPT</span> — a chatbot for IITB
-              students, in collaboration with the AI Community.
+              Inter IIT Tech Meet 2024 - <span class="text-vellum"
+                >1st place nationwide</span
+              > (<a href="/projects#FinSight" class="underline">see project</a>)
             </li>
             <li>
-              Working with 20+ students to build a
-              <span class="text-vellum">driverless car</span> for IIT Bombay Racing
-              Team.
+              SustAInify '24 - <span class="text-vellum"
+                >1st place nationwide</span
+              > in a price prediction competition using SOTA ML techniques.
+            </li>
+            <li>
+              Pathway Hackathon - Ranked <span class="text-vellum"
+                >top 10 internationally</span
+              > and awarded for outstanding performance.
             </li>
           </ul>
         </div>
       </EducationItem>
+    </div>
+  </section>
+
+  <section class="mt-24">
+    <div class="flex items-baseline justify-between gap-4">
+      <div class="section-tag">§ 03 / Experience</div>
+      <p
+        class="hidden font-mono text-[0.68rem] uppercase tracking-widest text-ash sm:block"
+      >
+        Recent work
+      </p>
+    </div>
+    <h2
+      class="mt-4 font-display text-4xl tracking-masthead text-vellum md:text-5xl"
+      style="font-variation-settings:'opsz' 144,'SOFT' 28,'wght' 440;"
+    >
+      Professional <span class="italic">experience</span>.
+    </h2>
+
+    <div class="mt-10 space-y-10">
+      <ProffesionExperienceItem
+        company="Jack and Jill"
+        position="Software Engineering Intern"
+        startDate="May 2025"
+        endDate="Jul 2025"
+        location="London, UK"
+      >
+        <ul class="key-points-list mt-5">
+          <li>
+            Built an efficient <span class="text-vellum"
+              >concurrent task execution system</span
+            >
+            in Python with job scheduling, bounded queues, and backpressure for long-running
+            workloads.
+          </li>
+          <li>
+            Implemented <span class="text-vellum">idempotent execution</span>,
+            retry policies, timeout management, and structured error reporting
+            to make failures predictable in distributed settings.
+          </li>
+          <li>
+            Developed a <span class="text-vellum"
+              >scalable ranking algorithm</span
+            > using <span class="text-vellum"
+              >embedding-based feature representations</span
+            > and <span class="text-vellum"
+              >approximate nearest neighbor search</span
+            >, optimizing for latency and ranking accuracy by using special
+            vector databases.
+          </li>
+        </ul>
+      </ProffesionExperienceItem>
+
+      <ProffesionExperienceItem
+        company="Kalpataru Computer Services"
+        position="Software Engineering Intern"
+        startDate="May 2024"
+        endDate="Jul 2024"
+        location="Mumbai, India"
+      >
+        <ul class="key-points-list mt-5">
+          <li>
+            Engineered a high-performance <span class="text-vellum"
+              >Rust parser</span
+            >
+            using <span class="text-vellum">mmap</span>, <span
+              class="text-vellum">multithreaded chunked processing</span
+            >, and <span class="text-vellum">zero-copy techniques</span>
+            to process 10GB-scale files with a 30x speedup.
+          </li>
+          <li>
+            Built latency-aware <span class="text-vellum">CI/CD pipelines</span> with
+            <span class="text-vellum">microbenchmarks</span> and <span
+              class="text-vellum">invariant-based testing</span
+            > to catch regressions before deployment.
+          </li>
+        </ul>
+      </ProffesionExperienceItem>
     </div>
   </section>
 </MainLayout>

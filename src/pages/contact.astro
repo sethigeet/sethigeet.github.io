@@ -3,34 +3,35 @@ import { Image } from "astro:assets";
 import MainLayout from "@layouts/MainLayout.astro";
 
 import githubIcon from "@assets/icons/github.svg";
-import twitterIcon from "@assets/icons/twitter.svg";
 import linkedinIcon from "@assets/icons/linkedin.svg";
 ---
 
-<MainLayout title="Contact" description="Get in touch with Geet Sethi">
-  <!-- Masthead -->
+<MainLayout
+  title="Contact"
+  description="Contact Geet Sethi for internships, collaborations, and systems engineering work."
+>
   <section>
     <div class="section-tag">§ 04 / Correspondence</div>
     <h1
-      class="font-display mt-6 max-w-4xl text-[clamp(2.4rem,6.6vw,5.4rem)] leading-[1.02] tracking-masthead text-vellum"
+      class="mt-6 max-w-4xl font-display text-[clamp(2.4rem,6.6vw,5.4rem)] leading-[1.02] tracking-masthead text-vellum"
       style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
     >
-      Say
-      <span class="italic text-ember" style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;">
-        hello
-      </span>.
-      Or, better yet, send something interesting.
+      Reach <span
+        class="italic text-ember"
+        style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;"
+      >
+        out
+      </span>. Email works best.
     </h1>
     <p class="mt-6 max-w-xl text-lg leading-relaxed text-bone">
-      I read everything. I answer most things. Opportunities, collaborations,
-      hard problems, and strong opinions are all welcome — email is the
-      fastest route.
+      Internships, collaborations, and difficult systems problems are all
+      welcome. The fastest way to reach me is by email, and GitHub / LinkedIn
+      are good secondary channels.
     </p>
   </section>
 
-  <div class="mt-16 rule"></div>
+  <div class="rule mt-16"></div>
 
-  <!-- Channels -->
   <section class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-12">
     <div class="md:col-span-7">
       <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ember">
@@ -43,11 +44,24 @@ import linkedinIcon from "@assets/icons/linkedin.svg";
         By <span class="italic">electronic mail</span>.
       </h2>
       <p class="mt-4 max-w-md text-base leading-relaxed text-bone">
-        The best way to reach me is by email. I'll get back to you.
+        Write to <a
+          href="mailto:geetsethi05@gmail.com"
+          class="edit-link text-ember">geetsethi05@gmail.com</a
+        >. I usually reply there first.
       </p>
-      <p class="mt-6 font-mono text-[0.7rem] uppercase tracking-widest text-ash">
-        A lightweight form follows, or use any of the channels on the right.
-      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="mailto:geetsethi05@gmail.com"
+          class="group inline-flex items-center gap-3 rounded-none border border-ember/80 bg-ember px-5 py-3 font-mono text-[0.72rem] uppercase tracking-widest text-ink transition-colors hover:bg-ember/90"
+        >
+          Send email
+          <span
+            class="transition-transform duration-300 group-hover:translate-x-1"
+          >
+            →
+          </span>
+        </a>
+      </div>
     </div>
 
     <div class="md:col-span-5 md:pl-6">
@@ -63,40 +77,28 @@ import linkedinIcon from "@assets/icons/linkedin.svg";
             class="group flex items-center justify-between gap-4 p-5 transition-colors hover:bg-ember/5"
           >
             <span class="flex items-center gap-4">
-              <Image src={githubIcon} alt="" class="h-5 w-5 invert opacity-90" />
+              <Image
+                src={githubIcon}
+                alt=""
+                class="h-5 w-5 opacity-90 invert"
+              />
               <span>
-                <span class="block font-display text-2xl tracking-masthead text-vellum" style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 420;">
+                <span
+                  class="block font-display text-2xl tracking-masthead text-vellum"
+                  style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 420;"
+                >
                   GitHub
                 </span>
-                <span class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
+                <span
+                  class="font-mono text-[0.68rem] uppercase tracking-widest text-ash"
+                >
                   @sethigeet
                 </span>
               </span>
             </span>
-            <span class="font-mono text-vellum transition-transform duration-300 group-hover:translate-x-1">
-              ↗
-            </span>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://twitter.com/_geet_sethi_"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex items-center justify-between gap-4 p-5 transition-colors hover:bg-ember/5"
-          >
-            <span class="flex items-center gap-4">
-              <Image src={twitterIcon} alt="" class="h-5 w-5 invert opacity-90" />
-              <span>
-                <span class="block font-display text-2xl tracking-masthead text-vellum" style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 420;">
-                  Twitter
-                </span>
-                <span class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
-                  @_geet_sethi_
-                </span>
-              </span>
-            </span>
-            <span class="font-mono text-vellum transition-transform duration-300 group-hover:translate-x-1">
+            <span
+              class="font-mono text-vellum transition-transform duration-300 group-hover:translate-x-1"
+            >
               ↗
             </span>
           </a>
@@ -109,17 +111,28 @@ import linkedinIcon from "@assets/icons/linkedin.svg";
             class="group flex items-center justify-between gap-4 p-5 transition-colors hover:bg-ember/5"
           >
             <span class="flex items-center gap-4">
-              <Image src={linkedinIcon} alt="" class="h-5 w-5 invert opacity-90" />
+              <Image
+                src={linkedinIcon}
+                alt=""
+                class="h-5 w-5 opacity-90 invert"
+              />
               <span>
-                <span class="block font-display text-2xl tracking-masthead text-vellum" style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 420;">
+                <span
+                  class="block font-display text-2xl tracking-masthead text-vellum"
+                  style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 420;"
+                >
                   LinkedIn
                 </span>
-                <span class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
+                <span
+                  class="font-mono text-[0.68rem] uppercase tracking-widest text-ash"
+                >
                   in/sethigeet
                 </span>
               </span>
             </span>
-            <span class="font-mono text-vellum transition-transform duration-300 group-hover:translate-x-1">
+            <span
+              class="font-mono text-vellum transition-transform duration-300 group-hover:translate-x-1"
+            >
               ↗
             </span>
           </a>
@@ -128,16 +141,20 @@ import linkedinIcon from "@assets/icons/linkedin.svg";
     </div>
   </section>
 
-  <!-- Big ribbon -->
   <section class="relative mt-24 overflow-hidden">
     <div class="rule"></div>
-    <div class="group py-10 overflow-hidden">
-      <div class="marquee-track animate-marquee-slow group-hover:[animation-play-state:paused]">
+    <div class="group overflow-hidden py-10">
+      <div
+        class="marquee-track animate-marquee-slow group-hover:[animation-play-state:paused]"
+      >
         {
           Array.from({ length: 8 }).map((_, i) => (
-            <span class="mx-10 inline-flex items-center gap-10 whitespace-nowrap font-display text-5xl md:text-6xl tracking-masthead text-vellum">
+            <span class="mx-10 inline-flex items-center gap-10 whitespace-nowrap font-display text-5xl tracking-masthead text-vellum md:text-6xl">
               <span class="inline-block h-2 w-2 rounded-full bg-ember" />
-              <span class:list={[i % 2 === 0 ? "italic text-ember" : ""]} style="font-variation-settings:'opsz' 144,'SOFT' 60,'wght' 420;">
+              <span
+                class:list={[i % 2 === 0 ? "italic text-ember" : ""]}
+                style="font-variation-settings:'opsz' 144,'SOFT' 60,'wght' 420;"
+              >
                 Write to me
               </span>
             </span>

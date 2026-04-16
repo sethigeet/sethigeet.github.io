@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 
 import githubIcon from "@assets/icons/github.svg";
-import twitterIcon from "@assets/icons/twitter.svg";
 import linkedinIcon from "@assets/icons/linkedin.svg";
 
 const year = new Date().getFullYear();
@@ -32,23 +31,6 @@ const year = new Date().getFullYear();
             class="h-4 w-4 opacity-80 invert transition-opacity group-hover:opacity-100"
           />
           <span class="font-mono text-xs uppercase tracking-widest">GitHub</span
-          >
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/_geet_sethi_"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group inline-flex items-center gap-2 text-bone transition-colors hover:text-vellum"
-        >
-          <Image
-            src={twitterIcon}
-            alt=""
-            class="h-4 w-4 opacity-80 invert transition-opacity group-hover:opacity-100"
-          />
-          <span class="font-mono text-xs uppercase tracking-widest"
-            >Twitter</span
           >
         </a>
       </li>
