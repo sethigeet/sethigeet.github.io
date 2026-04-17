@@ -1,9 +1,5 @@
 ---
-import {
-  EducationItem,
-  ProffesionExperienceItem,
-  TechLogo,
-} from "@components/index.astro";
+import { TechLogo, TimelineItem } from "@components/index.astro";
 import { LOGOS } from "@components/TechLogo.astro";
 import { MainLayout } from "@layouts/index.astro";
 import IITBLogo from "@assets/icons/iitb-logo.svg";
@@ -152,9 +148,9 @@ const doubled = [...LOGOS, ...LOGOS];
     </h2>
 
     <div class="mt-10">
-      <EducationItem
+      <TimelineItem
         logo={IITBLogo}
-        college="Indian Institute of Technology Bombay"
+        title="Indian Institute of Technology Bombay"
         startDate="July 2023"
         endDate="May 2027"
         isCurrent
@@ -213,7 +209,7 @@ const doubled = [...LOGOS, ...LOGOS];
             </li>
           </ul>
         </div>
-      </EducationItem>
+      </TimelineItem>
     </div>
   </section>
 
@@ -234,12 +230,24 @@ const doubled = [...LOGOS, ...LOGOS];
     </h2>
 
     <div class="mt-10 space-y-10">
-      <ProffesionExperienceItem
-        company="Jack and Jill"
-        position="Software Engineering Intern"
+      <TimelineItem
+        title="Quadeye Securities"
+        subtitle="Systems Engineering Intern · Gurugram, India"
+        startDate="May 2026"
+        endDate="Jul 2026"
+        isCurrent
+      >
+        <span class="mt-5 block text-bone"
+          >I will be working at Quadeye Securities this summer, so stay tuned
+          for more details!</span
+        >
+      </TimelineItem>
+
+      <TimelineItem
+        title="Jack and Jill"
+        subtitle="Software Engineering Intern · London, UK"
         startDate="May 2025"
         endDate="Jul 2025"
-        location="London, UK"
       >
         <ul class="key-points-list mt-5">
           <li>
@@ -265,14 +273,13 @@ const doubled = [...LOGOS, ...LOGOS];
             vector databases.
           </li>
         </ul>
-      </ProffesionExperienceItem>
+      </TimelineItem>
 
-      <ProffesionExperienceItem
-        company="Kalpataru Computer Services"
-        position="Software Engineering Intern"
+      <TimelineItem
+        title="Kalpataru Computer Services"
+        subtitle="Software Engineering Intern · Mumbai, India"
         startDate="May 2024"
         endDate="Jul 2024"
-        location="Mumbai, India"
       >
         <ul class="key-points-list mt-5">
           <li>
@@ -291,7 +298,7 @@ const doubled = [...LOGOS, ...LOGOS];
             > to catch regressions before deployment.
           </li>
         </ul>
-      </ProffesionExperienceItem>
+      </TimelineItem>
     </div>
   </section>
 </MainLayout>

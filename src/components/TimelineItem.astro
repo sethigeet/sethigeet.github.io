@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  startDate: string;
+  endDate: string;
+  logo?: ImageMetadata;
+  isCurrent?: boolean;
+}
+const {
+  title,
+  subtitle,
+  startDate,
+  endDate,
+  logo,
+  isCurrent = false,
+} = Astro.props;
+---
+
+<article class="relative border-l border-rule pl-6">
+  {
+    isCurrent && (
+      <span class="absolute -left-[5px] top-2 inline-block h-2 w-2 rounded-full bg-ember animate-flicker" />
+    )
+  }
+
+  <div
+    class="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-6"
+  >
+    <div class="flex items-center gap-4">
+      {
+        logo && (
+          <Image
+            class="h-14 w-14 shrink-0 rounded-full border border-rule bg-ink p-1.5"
+            width={56}
+            height={56}
+            src={logo}
+            alt={title}
+          />
+        )
+      }
+      <div>
+        <h3
+          class="font-display text-3xl tracking-masthead text-vellum"
+          style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 440;"
+        >
+          {title}
+        </h3>
+        {
+          subtitle && (
+            <p class="mt-1 font-mono text-[0.7rem] uppercase tracking-widest text-bone">
+              {subtitle}
+            </p>
+          )
+        }
+      </div>
+    </div>
+    <p
+      class="whitespace-nowrap font-mono text-[0.7rem] uppercase tracking-widest text-ash"
+    >
+      {startDate} – {endDate}
+    </p>
+  </div>
+
+  <slot />
+</article>
