@@ -40,7 +40,7 @@ const toc = buildHierarchy(headings);
       <h2 class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
         § On this page
       </h2>
-      <ul class="m-0 mt-4 list-none p-0 space-y-2" id="toc-list">
+      <ul class="m-0 mt-4 list-none space-y-2 p-0" id="toc-list">
         {toc.map((heading) => (
           <TOCHeading heading={heading} />
         ))}

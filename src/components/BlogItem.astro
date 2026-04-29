@@ -23,14 +23,16 @@ const image = images[imagePath!];
 >
   <article class="grid grid-cols-1 items-start gap-8 md:grid-cols-12">
     <p
-      class="md:col-span-1 font-display text-4xl leading-none tracking-masthead text-ember md:text-5xl"
+      class="font-display text-4xl leading-none tracking-masthead text-ember md:col-span-1 md:text-5xl"
       style="font-variation-settings:'opsz' 144,'SOFT' 20,'wght' 380;"
     >
       {index}
     </p>
 
     <div class="md:col-span-7">
-      <div class="flex items-center gap-3 font-mono text-[0.68rem] uppercase tracking-widest text-ash">
+      <div
+        class="flex items-center gap-3 font-mono text-[0.68rem] uppercase tracking-widest text-ash"
+      >
         <span>{publishedAtDateFriendly}</span>
         <span class="text-bone">·</span>
         <span>{post.frontmatter.minutesRead}</span>
@@ -44,13 +46,18 @@ const image = images[imagePath!];
       <p class="mt-4 max-w-[55ch] text-base leading-relaxed text-bone">
         {post.frontmatter.excerpt}
       </p>
-      <span class="mt-5 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-widest text-vellum">
+      <span
+        class="mt-5 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-widest text-vellum"
+      >
         Read the piece
-        <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        <span
+          class="transition-transform duration-300 group-hover:translate-x-1"
+          >→</span
+        >
       </span>
     </div>
 
-    <div class="md:col-span-4 overflow-hidden border border-rule">
+    <div class="overflow-hidden border border-rule md:col-span-4">
       <Image
         class="w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
         style="filter: saturate(0.82) contrast(1.02);"

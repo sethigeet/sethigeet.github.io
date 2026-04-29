@@ -33,19 +33,22 @@ const allPosts = Object.values(
   <section>
     <div class="section-tag">§ 03 / The Journal</div>
     <h1
-      class="font-display mt-6 max-w-4xl text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
+      class="mt-6 max-w-4xl font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] tracking-masthead text-vellum"
       style="font-variation-settings:'opsz' 144,'SOFT' 35,'wght' 440;"
     >
       Notes from the
-      <span class="italic text-ember" style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;">
+      <span
+        class="italic text-ember"
+        style="font-variation-settings:'opsz' 144,'SOFT' 100,'wght' 420;"
+      >
         margins
       </span>
       of an engineering education.
     </h1>
     <p class="mt-6 max-w-xl text-lg leading-relaxed text-bone">
       Occasional writing on papers, systems, and the
-      <em class="not-italic text-vellum">strangely stubborn</em> problems
-      I find myself stuck on. Updated whenever I finish thinking.
+      <em class="not-italic text-vellum">strangely stubborn</em> problems I find myself
+      stuck on. Updated whenever I finish thinking.
     </p>
   </section>
 
@@ -54,8 +57,11 @@ const allPosts = Object.values(
       <p class="font-mono text-[0.68rem] uppercase tracking-widest text-ash">
         All issues &nbsp;·&nbsp; newest first
       </p>
-      <p class="hidden font-mono text-[0.68rem] uppercase tracking-widest text-bone sm:block">
-        {allPosts.length} {allPosts.length === 1 ? "entry" : "entries"}
+      <p
+        class="hidden font-mono text-[0.68rem] uppercase tracking-widest text-bone sm:block"
+      >
+        {allPosts.length}
+        {allPosts.length === 1 ? "entry" : "entries"}
       </p>
     </div>
 

@@ -50,7 +50,9 @@ const publishedAtDateFriendly = getFriendlyDate(frontmatter.publishedAt);
     <Tooltips interactive={false} />
   </head>
   <body>
-    <div class="relative mx-auto flex min-h-screen max-w-[1280px] flex-col px-5 md:px-10">
+    <div
+      class="relative mx-auto flex min-h-screen max-w-[1280px] flex-col px-5 md:px-10"
+    >
       <Header />
 
       <!-- Article masthead -->
@@ -62,15 +64,19 @@ const publishedAtDateFriendly = getFriendlyDate(frontmatter.publishedAt);
         >
           {frontmatter.title}
         </h1>
-        <div class="mt-6 flex flex-wrap items-center gap-3 font-mono text-[0.7rem] uppercase tracking-widest text-bone">
+        <div
+          class="mt-6 flex flex-wrap items-center gap-3 font-mono text-[0.7rem] uppercase tracking-widest text-bone"
+        >
           <span>{publishedAtDateFriendly}</span>
           <span class="text-ash">·</span>
           <span>{frontmatter.minutesRead}</span>
         </div>
-        <div class="mt-10 rule"></div>
+        <div class="rule mt-10"></div>
       </section>
 
-      <div class="mt-10 grid items-start gap-10 lg:grid-cols-[minmax(0,3fr)_1fr]">
+      <div
+        class="mt-10 grid items-start gap-10 lg:grid-cols-[minmax(0,3fr)_1fr]"
+      >
         <main
           class="prose prose-invert row-start-2 mx-auto w-full max-w-[70ch] flex-1 lg:col-span-1 lg:row-start-auto"
         >
